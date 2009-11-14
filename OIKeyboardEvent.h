@@ -8,38 +8,38 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString* const OIPowerToggleKey;
+extern NSString* const OIKeyPowerToggle;
 
-extern NSString* const OIUpKey;
-extern NSString* const OIDownKey;
-extern NSString* const OILeftKey;
-extern NSString* const OIRightKey;
+extern NSString* const OIKeyUpArrow;
+extern NSString* const OIKeyDownArrow;
+extern NSString* const OIKeyLeftArrow;
+extern NSString* const OIKeyRightArrow;
 
-extern NSString* const OI0Key;
-extern NSString* const OI1Key;
-extern NSString* const OI2Key;
-extern NSString* const OI3Key;
-extern NSString* const OI4Key;
-extern NSString* const OI5Key;
-extern NSString* const OI6Key;
-extern NSString* const OI7Key;
-extern NSString* const OI8Key;
-extern NSString* const OI9Key;
+extern NSString* const OIKeyNumber0;
+extern NSString* const OIKeyNumber1;
+extern NSString* const OIKeyNumber2;
+extern NSString* const OIKeyNumber3;
+extern NSString* const OIKeyNumber4;
+extern NSString* const OIKeyNumber5;
+extern NSString* const OIKeyNumber6;
+extern NSString* const OIKeyNumber7;
+extern NSString* const OIKeyNumber8;
+extern NSString* const OIKeyNumber9;
 
-extern NSString* const OIEscapeKey;
-extern NSString* const OIReturnKey;
+extern NSString* const OIKeyEscape;
+extern NSString* const OIKeyReturn;
 
-extern NSString* const OIIncreaseKey;
-extern NSString* const OIDecreaseKey;
+extern NSString* const OIKeyIncrease;
+extern NSString* const OIKeyDecrease;
 
-extern NSString* const OISpaceKey;
+extern NSString* const OIKeySpace;
 
-extern NSString* const OINextKey;
-extern NSString* const OIPreviousKey;
+extern NSString* const OIKeyNext;
+extern NSString* const OIKeyPrevious;
 
-extern NSString* const OIRotateScreenKey;
-extern NSString* const OISearchKey;
-extern NSString* const OIPlayPauseKey;
+extern NSString* const OIKeyRotateScreen;
+extern NSString* const OIKeySearch;
+extern NSString* const OIKeyPlayPayse;
 
 
 @interface OIKeyboardEvent : NSObject {

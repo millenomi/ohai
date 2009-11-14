@@ -75,10 +75,10 @@
 
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)r;
 {
-	if ([e.key isEqual:OILeftKey] || [e.key isEqual:OIUpKey] || [e.key isEqual:OI9Key]) {
+	if ([e.key isEqual:OIKeyLeftArrow] || [e.key isEqual:OIKeyUpArrow] || [e.key isEqual:OIKeyNumber9]) {
 		[r previousPage];
 		return YES;
-	} else if ([e.key isEqual:OIRightKey] || [e.key isEqual:OIDownKey] || [e.key isEqual:OI0Key]) {
+	} else if ([e.key isEqual:OIKeyRightArrow] || [e.key isEqual:OIKeyDownArrow] || [e.key isEqual:OIKeyNumber0]) {
 		[r nextPage];
 		return YES;
 	}
@@ -92,14 +92,14 @@
 
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)r;
 {
-	if ([e.key isEqual:OIEscapeKey]) {
+	if ([e.key isEqual:OIKeyEscape]) {
 		if (e.held)
 			[r forceCancelOrBack];
 		else
 			[r cancelOrBack];
 		
 		return YES;
-	} else if ([e.key isEqual:OIReturnKey]) {
+	} else if ([e.key isEqual:OIKeyReturn]) {
 		if (![r respondsToSelector:@selector(canPerformAction)] || [r canPerformAction])
 			[r performAction];
 		else
@@ -117,16 +117,16 @@
 
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)r;
 {
-	if ([e.key isEqual:OI2Key]) {
+	if ([e.key isEqual:OIKeyNumber2]) {
 		[r up];
 		return YES;
-	} else if ([e.key isEqual:OI7Key]) {
+	} else if ([e.key isEqual:OIKeyNumber7]) {
 		[r down];
 		return YES;
-	} else if ([e.key isEqual:OI8Key]) {
+	} else if ([e.key isEqual:OIKeyNumber8]) {
 		[r right];
 		return YES;
-	} else if ([e.key isEqual:OI6Key]) {
+	} else if ([e.key isEqual:OIKeyNumber6]) {
 		[r left];
 		return YES;
 	}
@@ -155,13 +155,13 @@
 
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)r;
 {
-	if ([e.key isEqual:OI6Key]) {
+	if ([e.key isEqual:OIKeyNumber6]) {
 		[r bookmark];
 		return YES;
-	} else if ([e.key isEqual:OI7Key]) {
+	} else if ([e.key isEqual:OIKeyNumber7]) {
 		[r showDestinationsList];
 		return YES;
-	} else if ([e.key isEqual:OI8Key]) {
+	} else if ([e.key isEqual:OIKeyNumber8]) {
 		[r zoom];
 		return YES;
 	}

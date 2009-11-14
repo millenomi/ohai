@@ -8,38 +8,38 @@
 
 #import "OIKeyboardEvent.h"
 
-NSString* const OIPowerToggleKey = @"XF86PowerOff";
+NSString* const OIKeyPowerToggle = @"XF86PowerOff";
 
-NSString* const OIUpKey = @"Up";
-NSString* const OIDownKey = @"Down";
-NSString* const OILeftKey = @"Left";
-NSString* const OIRightKey = @"Right";
+NSString* const OIKeyUpArrow = @"Up";
+NSString* const OIKeyDownArrow = @"Down";
+NSString* const OIKeyLeftArrow = @"Left";
+NSString* const OIKeyRightArrow = @"Right";
 
-NSString* const OI0Key = @"KP_0";
-NSString* const OI1Key = @"KP_1";
-NSString* const OI2Key = @"KP_2";
-NSString* const OI3Key = @"KP_3";
-NSString* const OI4Key = @"KP_4";
-NSString* const OI5Key = @"KP_5";
-NSString* const OI6Key = @"KP_6";
-NSString* const OI7Key = @"KP_7";
-NSString* const OI8Key = @"KP_8";
-NSString* const OI9Key = @"KP_9";
+NSString* const OIKeyNumber0 = @"KP_0";
+NSString* const OIKeyNumber1 = @"KP_1";
+NSString* const OIKeyNumber2 = @"KP_2";
+NSString* const OIKeyNumber3 = @"KP_3";
+NSString* const OIKeyNumber4 = @"KP_4";
+NSString* const OIKeyNumber5 = @"KP_5";
+NSString* const OIKeyNumber6 = @"KP_6";
+NSString* const OIKeyNumber7 = @"KP_7";
+NSString* const OIKeyNumber8 = @"KP_8";
+NSString* const OIKeyNumber9 = @"KP_9";
 
-NSString* const OIEscapeKey = @"Escape";
-NSString* const OIReturnKey = @"Return";
+NSString* const OIKeyEscape = @"Escape";
+NSString* const OIKeyReturn = @"Return";
 
-NSString* const OIIncreaseKey = @"KP_Add";
-NSString* const OIDecreaseKey = @"KP_Subtract";
+NSString* const OIKeyIncrease = @"KP_Add";
+NSString* const OIKeyDecrease = @"KP_Subtract";
 
-NSString* const OISpaceKey = @"space";
+NSString* const OIKeySpace = @"space";
 
-NSString* const OINextKey = @"Next";
-NSString* const OIPreviousKey = @"Prior";
+NSString* const OIKeyNext = @"Next";
+NSString* const OIKeyPrevious = @"Prior";
 
-NSString* const OIRotateScreenKey = @"XF86RotateWindows";
-NSString* const OISearchKey = @"XF86Search";
-NSString* const OIPlayPauseKey = @"XF86AudioPlay";
+NSString* const OIKeyRotateScreen = @"XF86RotateWindows";
+NSString* const OIKeySearch = @"XF86Search";
+NSString* const OIKeyPlayPayse = @"XF86AudioPlay";
 
 @interface OIKeyboardEvent ()
 
