@@ -1,0 +1,22 @@
+ARCHS = $(NATIVE_ARCH_ACTUAL)
+SDKROOT = 
+
+GCC_VERSION = org.cocotron.1.0.linux.arm_OpenInkpot.gcc.4.3.1
+INSTALL_PATH = $(HOME)/Library/Frameworks
+OTHER_LDFLAGS = -shared -lm -ldl -lpthread -lecore
+EXECUTABLE_PREFIX = lib
+FRAMEWORK_VERSION = A
+INFOPLIST_FILE = Info.plist
+PRODUCT_NAME = Ohai
+WRAPPER_EXTENSION = framework
+ALWAYS_SEARCH_USER_PATHS = NO
+
+FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/arm/Frameworks
+HEADER_SEARCH_PATHS = /Developer/Cocotron/1.0/PlatformInterfaces/arm-ip-linux-gnueabi/usr/include
+LIBRARY_SEARCH_PATHS = /Developer/Cocotron/1.0/PlatformInterfaces/arm-ip-linux-gnueabi/usr/lib
+
+EXECUTABLE_SUFFIX = .so
+GCC_DYNAMIC_NO_PIC = NO
+
+GCC_PRECOMPILE_PREFIX_HEADER = NO
+OTHER_CFLAGS = -D__LITTLE_ENDIAN__ -fPIC $(inherited) -march=armv4t -k -mlittle-endian
