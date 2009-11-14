@@ -10,17 +10,7 @@
 
 #import "OIResponder.h"
 #import "OIWindow.h"
-
-typedef struct {
-	int red, green, blue, alpha;
-} OIColor;
-
-static inline OIColor OIColorMake(int r, int g, int b, int a) {
-	OIColor c;
-	c.red = r; c.green = g;
-	c.blue = b;	c.alpha = a;
-	return c;
-}
+#import "OIColor.h"
 
 typedef void* OIShapeEvasObjectRef;
 

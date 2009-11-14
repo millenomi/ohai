@@ -63,7 +63,7 @@
 		shapes = [NSMutableArray new];
 		
 		self.background = [OIRectangle rectangleWithFrame:f];
-		self.background.color = OIColorMake(255, 255, 255, 255);
+		self.background.color = kOIColorWhite;
 		self.background.nextResponder = self;
 		[self addShape:self.background];
 		[self.background becomeFirstResponder];
