@@ -34,7 +34,7 @@ typedef void* OIShapeEvasObjectRef;
 }
 
 - (void) addToWindow:(OIWindow*) window;
-- (void) removeFromWindow;
+- (void) removeFromWindow; // don't call this. use [window removeShape:x] instead.
 
 @property(readonly) OIShapeEvasObjectRef evasObject;
 

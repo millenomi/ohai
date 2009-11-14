@@ -60,6 +60,7 @@
 		frame = f;
 		hidden = YES;
 		evas = ecore_evas_software_x11_new(NULL, 0, f.origin.x, f.origin.y, f.size.width, f.size.height);
+		shapes = [NSMutableArray new];
 		
 		self.background = [OIRectangle rectangleWithFrame:f];
 		self.background.color = OIColorMake(255, 255, 255, 255);
@@ -74,10 +75,12 @@
 + window { return [[self new] autorelease]; }
 + windowWithFrame:(NSRect) f { return [[[self alloc] initWithFrame:f] autorelease]; }
 
-@synthesize hidden, background;
+@synthesize hidden, background, shapes;
 
 - (void) dealloc
 {
+	[shapes release];
+	
 	if (evas) {
 		ecore_evas_hide(evas);
 		ecore_evas_free(evas);
@@ -140,7 +143,14 @@
 
 - (void) addShape:(OIShape*) shape;
 {
+	[shapes addObject:shape];
 	[shape addToWindow:self];
+}
+
+- (void) removeShape:(OIShape*) shape;
+{
+	[shape removeFromWindow];
+	[shapes removeObject:shape];
 }
 
 @end

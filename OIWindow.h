@@ -20,6 +20,7 @@ typedef void* OIWindowEcoreEvasRef;
 	BOOL hidden;
 	
 	OIRectangle* background;
+	NSMutableArray* shapes;
 }
 
 - (id) init;
@@ -38,8 +39,11 @@ typedef void* OIWindowEcoreEvasRef;
 @property(readonly) OIWindowEcoreEvasRef ecoreEvas;
 
 - (void) addShape:(OIShape*) shape;
+- (void) removeShape:(OIShape*) shape;
 
 @property(readonly, retain) OIRectangle* background;
+@property(readonly) NSArray* shapes;
+
 
 @end
 
