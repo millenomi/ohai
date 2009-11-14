@@ -21,7 +21,7 @@
 		155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CD210AF357800473529 /* OIKeyboardEvent.m */; };
 		155D2CEE10AF377A00473529 /* OIMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CEC10AF377A00473529 /* OIMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2CEF10AF377A00473529 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CED10AF377A00473529 /* OIMap.m */; };
-		155D2DF910AF4C1900473529 /* OIShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2DF710AF4C1900473529 /* OIShape.h */; };
+		155D2DF910AF4C1900473529 /* OIShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2DF710AF4C1900473529 /* OIShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2DFA10AF4C1900473529 /* OIShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2DF810AF4C1900473529 /* OIShape.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
