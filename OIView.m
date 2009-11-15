@@ -115,6 +115,20 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 		evas_object_layer_set(evasObject, l);
 }
 
+- (void) bringToFront;
+{
+	NSAssert(evasObject, @"Only shapes added to a window can be brought to front or sent to back.");
+	evas_object_raise(evasObject);
+	layer = evas_object_layer_get(evasObject);
+}
+
+- (void) sendToBack;
+{
+	NSAssert(evasObject, @"Only shapes added to a window can be brought to front or sent to back.");
+	evas_object_lower(evasObject);
+	layer = evas_object_layer_get(evasObject);	
+}
+
 - (void) setFrame:(NSRect) r;
 {
 	frame = r;

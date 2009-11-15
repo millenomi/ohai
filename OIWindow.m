@@ -154,6 +154,7 @@
 {
 	[views addObject:shape];
 	[shape addToWindow:self];
+	[shape bringToFront];
 }
 
 - (void) removeView:(OIView*) shape;

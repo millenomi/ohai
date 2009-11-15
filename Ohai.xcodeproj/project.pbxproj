@@ -217,7 +217,6 @@
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
-				15B31C4410B01E0E007602D0 /* Make Ohai Symlink */,
 			);
 			buildRules = (
 				154B356610A7F9340054FF31 /* PBXBuildRule */,
@@ -259,23 +258,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		15B31C4410B01E0E007602D0 /* Make Ohai Symlink */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Make Ohai Symlink";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$BUILT_PRODUCTS_DIR\"/\"$WRAPPER_NAME\"\n\nif [ -L Ohai ]; then\n\trm Ohai\nfi\n\nln -s libOhai.so Ohai\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {

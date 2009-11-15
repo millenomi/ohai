@@ -35,6 +35,9 @@ typedef void* OIViewEvasObjectRef;
 // -- - --
 
 @property(assign) short layer;
+- (void) bringToFront;
+- (void) sendToBack;
+
 @property(assign) NSRect frame;
 @property(assign) BOOL hidden;
 @property(assign) OIColor color;
