@@ -34,7 +34,6 @@ typedef void* OIViewEvasObjectRef;
 
 // -- - --
 
-@property(assign) short layer;
 - (void) bringToFront;
 - (void) sendToBack;
 

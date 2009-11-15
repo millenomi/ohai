@@ -45,7 +45,7 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 
 @implementation OIView
 
-@synthesize layer, frame, hidden, color, window, evasObject;
+@synthesize frame, hidden, color, window, evasObject;
 
 - (void) dealloc;
 {
@@ -62,10 +62,9 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 	evas_object_move(evasObject, r.origin.x, r.origin.y);
 	evas_object_resize(evasObject, r.size.width, r.size.height);
 	
-	evas_object_layer_set(evasObject, self.layer);
-	
 	OIColor c = self.color;
-	evas_object_color_set(evasObject, c.red, c.green, c.blue, c.alpha);
+	if (self.color.alpha > 0)
+		evas_object_color_set(evasObject, c.red, c.green, c.blue, c.alpha);
 	
 	if (self.hidden)
 		evas_object_hide(evasObject);
@@ -107,13 +106,6 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 	return NULL;
 }
 
-
-- (void) setLayer:(short) l;
-{
-	layer = l;
-	if (evasObject)
-		evas_object_layer_set(evasObject, l);
-}
 
 - (void) bringToFront;
 {
@@ -176,12 +168,23 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 
 @end
 
+
+
+@interface OIImageView ()
+
+- (void) loadPathInEvasObject;
+
+@end
+
+
 @implementation OIImageView
 
 - (id) initWithImageAtPath:(NSString*) p;
 {
-	if (self = [super init])
+	if (self = [super init]) {
 		self.path = p;
+		self.color = OIColorClear;
+	}
 	
 	return self;
 }
@@ -199,8 +202,7 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 
 - (OIViewEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
 {
-	Evas_Object* o = evas_object_image_add(ecore_evas_get(ref));
-	evas_object_image_file_set(o, [self.path fileSystemRepresentation], NULL);
+	Evas_Object* o = evas_object_image_filled_add(ecore_evas_get(ref));
 	return o;
 }
 
@@ -212,7 +214,26 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 		path = [p copy];
 		
 		if (self.evasObject)
-			evas_object_image_file_set(self.evasObject, [path fileSystemRepresentation], NULL);
+			[self loadPathInEvasObject];
+	}
+}
+
+- (void) addToWindow:(OIWindow *)wn;
+{
+	[super addToWindow:wn];
+	[self loadPathInEvasObject];
+}
+
+- (void) loadPathInEvasObject;
+{
+	NSAssert(self.evasObject, @"This view must be added to a window before the image can be loaded");
+	evas_object_image_file_set(self.evasObject, [self.path fileSystemRepresentation], NULL);
+	evas_object_image_reload(self.evasObject);
+	
+	int error = evas_object_image_load_error_get(self.evasObject);
+	if (error != EVAS_LOAD_ERROR_NONE) {
+		// TODO non-exception way to report the error.
+		[NSException raise:@"OIImageViewCouldNotLoadImageException" format:@"Load error is %d", error];
 	}
 }
 

@@ -13,6 +13,8 @@
 
 typedef void* OIWindowEcoreEvasRef;
 
+#define OIWindowViewLog (@"OIWindowViewLog")
+
 @interface OIWindow : OIResponder {
 	OIWindowEcoreEvasRef evas;
 	NSRect frame;

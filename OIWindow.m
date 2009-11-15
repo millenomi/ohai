@@ -10,6 +10,7 @@
 #import "OIApplication.h"
 #import "OIScreen.h"
 #import "OIView.h"
+#import "OILog.h"
 
 #import <Ecore.h>
 #import <Ecore_X.h>
@@ -155,12 +156,14 @@
 	[views addObject:shape];
 	[shape addToWindow:self];
 	[shape bringToFront];
+	_OILog(OIWindowViewLog, @"%@ (%s):\n - Added a view: %@", self, __func__, shape);
 }
 
 - (void) removeView:(OIView*) shape;
 {
 	[shape removeFromWindow];
 	[views removeObject:shape];
+	_OILog(OIWindowViewLog, @"%@ (%s):\n - Removed a view: %@", self, __func__, shape);
 }
 
 @end

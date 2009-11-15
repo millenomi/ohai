@@ -7,6 +7,7 @@
 //
 
 #import "OIApplication.h"
+#import "OIWindow.h"
 
 #import <Ecore.h>
 
@@ -34,7 +35,10 @@ void OIInitializeProcess(int argc, const char* argv[]) {
 	
 	if (_OIHasEnvSetting(OIResponderEventLog))
 		fprintf(stderr, "Ohai: Responder event log enabled.\n");
-	
+
+	if (_OIHasEnvSetting(OIWindowViewLog))
+		fprintf(stderr, "Ohai: Window and view log enabled.\n");
+
 	fprintf(stderr, "Ohai: Initializing the process for Cocoa.\n");
 	NSInitializeProcess(argc, argv);
 	
