@@ -21,8 +21,8 @@
 		155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CD210AF357800473529 /* OIKeyboardEvent.m */; };
 		155D2CEE10AF377A00473529 /* OIMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CEC10AF377A00473529 /* OIMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2CEF10AF377A00473529 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CED10AF377A00473529 /* OIMap.m */; };
-		155D2DF910AF4C1900473529 /* OIShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2DF710AF4C1900473529 /* OIShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		155D2DFA10AF4C1900473529 /* OIShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2DF810AF4C1900473529 /* OIShape.m */; };
+		155D2DF910AF4C1900473529 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2DF710AF4C1900473529 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		155D2DFA10AF4C1900473529 /* OIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2DF810AF4C1900473529 /* OIView.m */; };
 		158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 158E5DE510AFF8D1005F0C3C /* OILog.h */; };
 		158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */ = {isa = PBXBuildFile; fileRef = 158E5DE610AFF8D1005F0C3C /* OILog.m */; };
 		15C8705310AF607B000C05E1 /* OIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C8705210AF607B000C05E1 /* OIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,8 +66,8 @@
 		155D2CD210AF357800473529 /* OIKeyboardEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIKeyboardEvent.m; sourceTree = "<group>"; };
 		155D2CEC10AF377A00473529 /* OIMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIMap.h; sourceTree = "<group>"; };
 		155D2CED10AF377A00473529 /* OIMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIMap.m; sourceTree = "<group>"; };
-		155D2DF710AF4C1900473529 /* OIShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIShape.h; sourceTree = "<group>"; };
-		155D2DF810AF4C1900473529 /* OIShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIShape.m; sourceTree = "<group>"; };
+		155D2DF710AF4C1900473529 /* OIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIView.h; sourceTree = "<group>"; };
+		155D2DF810AF4C1900473529 /* OIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIView.m; sourceTree = "<group>"; };
 		158E5DE510AFF8D1005F0C3C /* OILog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OILog.h; sourceTree = "<group>"; };
 		158E5DE610AFF8D1005F0C3C /* OILog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OILog.m; sourceTree = "<group>"; };
 		15C8705210AF607B000C05E1 /* OIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIColor.h; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				15C8705210AF607B000C05E1 /* OIColor.h */,
-				155D2DF710AF4C1900473529 /* OIShape.h */,
-				155D2DF810AF4C1900473529 /* OIShape.m */,
+				155D2DF710AF4C1900473529 /* OIView.h */,
+				155D2DF810AF4C1900473529 /* OIView.m */,
 			);
 			name = Shapes;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 				155D2CA810AF341E00473529 /* OIResponder.h in Headers */,
 				155D2CD310AF357800473529 /* OIKeyboardEvent.h in Headers */,
 				155D2CEE10AF377A00473529 /* OIMap.h in Headers */,
-				155D2DF910AF4C1900473529 /* OIShape.h in Headers */,
+				155D2DF910AF4C1900473529 /* OIView.h in Headers */,
 				15C8705310AF607B000C05E1 /* OIColor.h in Headers */,
 				158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */,
 			);
@@ -217,6 +217,7 @@
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
+				15B31C4410B01E0E007602D0 /* Make Ohai Symlink */,
 			);
 			buildRules = (
 				154B356610A7F9340054FF31 /* PBXBuildRule */,
@@ -259,6 +260,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15B31C4410B01E0E007602D0 /* Make Ohai Symlink */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Make Ohai Symlink";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$BUILT_PRODUCTS_DIR\"/\"$WRAPPER_NAME\"\n\nif [ -L Ohai ]; then\n\trm Ohai\nfi\n\nln -s libOhai.so Ohai\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -270,7 +288,7 @@
 				155D2CA910AF341E00473529 /* OIResponder.m in Sources */,
 				155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */,
 				155D2CEF10AF377A00473529 /* OIMap.m in Sources */,
-				155D2DFA10AF4C1900473529 /* OIShape.m in Sources */,
+				155D2DFA10AF4C1900473529 /* OIView.m in Sources */,
 				158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

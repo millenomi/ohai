@@ -9,7 +9,7 @@
 #import "OIWindow.h"
 #import "OIApplication.h"
 #import "OIScreen.h"
-#import "OIShape.h"
+#import "OIView.h"
 
 #import <Ecore.h>
 #import <Ecore_X.h>
@@ -62,12 +62,12 @@
 		evas = ecore_evas_software_x11_new(NULL, 0, f.origin.x, f.origin.y, f.size.width, f.size.height);
 		NSAssert(evas, @"Cannot create a window. Make sure the windowing system is running and accessible.");
 		
-		shapes = [NSMutableArray new];
+		views = [NSMutableArray new];
 		
 		self.background = [OIRectangle rectangleWithFrame:f];
 		self.background.color = OIColorWhite;
 		self.background.nextResponder = self;
-		[self addShape:self.background];
+		[self addView:self.background];
 		[self.background becomeFirstResponder];
 	}
 	
@@ -77,11 +77,11 @@
 + window { return [[self new] autorelease]; }
 + windowWithFrame:(NSRect) f { return [[[self alloc] initWithFrame:f] autorelease]; }
 
-@synthesize hidden, background, shapes;
+@synthesize hidden, background, views;
 
 - (void) dealloc
 {
-	[shapes release];
+	[views release];
 	
 	if (evas) {
 		ecore_evas_hide(evas);
@@ -117,6 +117,13 @@
 	ecore_evas_move_resize(evas, f.origin.x, f.origin.y, f.size.width, f.size.height);
 }
 
+- (NSRect) bounds;
+{
+	NSRect r = self.frame;
+	r.origin = NSZeroPoint;
+	return r;
+}
+
 - (BOOL) zoomed;
 {
 	return ecore_evas_maximized_get(evas) != 0;
@@ -143,16 +150,16 @@
 	return evas;
 }
 
-- (void) addShape:(OIShape*) shape;
+- (void) addView:(OIView*) shape;
 {
-	[shapes addObject:shape];
+	[views addObject:shape];
 	[shape addToWindow:self];
 }
 
-- (void) removeShape:(OIShape*) shape;
+- (void) removeView:(OIView*) shape;
 {
 	[shape removeFromWindow];
-	[shapes removeObject:shape];
+	[views removeObject:shape];
 }
 
 @end

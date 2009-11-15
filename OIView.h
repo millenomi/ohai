@@ -12,10 +12,10 @@
 #import "OIWindow.h"
 #import "OIColor.h"
 
-typedef void* OIShapeEvasObjectRef;
+typedef void* OIViewEvasObjectRef;
 
-@interface OIShape : OIResponder {
-	OIShapeEvasObjectRef evasObject;
+@interface OIView : OIResponder {
+	OIViewEvasObjectRef evasObject;
 	
 	short layer;
 	NSRect frame;
@@ -27,10 +27,10 @@ typedef void* OIShapeEvasObjectRef;
 - (void) addToWindow:(OIWindow*) window;
 - (void) removeFromWindow; // don't call this. use [window removeShape:x] instead.
 
-@property(readonly) OIShapeEvasObjectRef evasObject;
+@property(readonly) OIViewEvasObjectRef evasObject;
 
 // Subclasses must implement this.
-- (OIShapeEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
+- (OIViewEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
 
 // -- - --
 
@@ -45,9 +45,21 @@ typedef void* OIShapeEvasObjectRef;
 
 @end
 
-@interface OIRectangle : OIShape {}
+@interface OIRectangle : OIView {}
 
 - (id) initWithFrame:(NSRect) frame;
 + rectangleWithFrame:(NSRect) frame;
+
+@end
+
+@interface OIImageView : OIView {
+	NSString* path;
+	// NSData* data; // TODO
+}
+
+- (id) initWithImageAtPath:(NSString*) path;
++ imageViewWithImageAtPath:(NSString*) path;
+
+@property(copy) NSString* path;
 
 @end

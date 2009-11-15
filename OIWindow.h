@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OIResponder.h"
 
-@class OIShape, OIRectangle;
+@class OIView, OIRectangle;
 
 typedef void* OIWindowEcoreEvasRef;
 
@@ -20,7 +20,7 @@ typedef void* OIWindowEcoreEvasRef;
 	BOOL hidden;
 	
 	OIRectangle* background;
-	NSMutableArray* shapes;
+	NSMutableArray* views;
 }
 
 - (id) init;
@@ -34,15 +34,16 @@ typedef void* OIWindowEcoreEvasRef;
 - (void) orderFront;
 
 @property(assign) NSRect frame;
+@property(readonly) NSRect bounds; // unlike other AppKitalikes, -bounds here is just -frame in this OIWindow's coordinates. Always derived from -frame.
 @property(assign) BOOL zoomed;
 
 @property(readonly) OIWindowEcoreEvasRef ecoreEvas;
 
-- (void) addShape:(OIShape*) shape;
-- (void) removeShape:(OIShape*) shape;
+- (void) addView:(OIView*) shape;
+- (void) removeView:(OIView*) shape;
 
 @property(readonly, retain) OIRectangle* background;
-@property(readonly) NSArray* shapes;
+@property(readonly) NSArray* views;
 
 
 @end

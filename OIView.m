@@ -6,13 +6,15 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "OIShape.h"
+#import "OIView.h"
 #import "OIKeyboardEvent.h"
 #import <Evas.h>
 #import <Ecore_Evas.h>
 
 static void OIShapeKeyDownEvent(void* me, Evas* evas, Evas_Object* background, void* eventInfo) {
 	Evas_Event_Key_Down* info = (Evas_Event_Key_Down*) eventInfo;
+	if (info->event_flags & EVAS_EVENT_FLAG_ON_HOLD) return;
+	
 	OIWindow* self = (id) me;
 	
 	OIKeyboardEvent* event = [[OIKeyboardEvent alloc]
@@ -27,6 +29,8 @@ static void OIShapeKeyDownEvent(void* me, Evas* evas, Evas_Object* background, v
 
 static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void* eventInfo) {
 	Evas_Event_Key_Up* info = (Evas_Event_Key_Up*) eventInfo;
+	if (info->event_flags & EVAS_EVENT_FLAG_ON_HOLD) return;
+	
 	OIWindow* self = (id) me;
 	
 	OIKeyboardEvent* event = [[OIKeyboardEvent alloc]
@@ -39,7 +43,7 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 	[event release];
 }
 
-@implementation OIShape
+@implementation OIView
 
 @synthesize layer, frame, hidden, color, window, evasObject;
 
@@ -97,7 +101,7 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 }
 
 // Subclasses implement this.
-- (OIShapeEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
+- (OIViewEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
 {
 	[NSException raise:@"OIShapeAbstractExceptioN" format:@"%s was not implemented in class %@!", __func__, [self class]];
 	return NULL;
@@ -151,9 +155,51 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 	return [[[self alloc] initWithFrame:f] autorelease];
 }
 
-- (OIShapeEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
+- (OIViewEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
 {
 	return evas_object_rectangle_add(ecore_evas_get(ref));
+}
+
+@end
+
+@implementation OIImageView
+
+- (id) initWithImageAtPath:(NSString*) p;
+{
+	if (self = [super init])
+		self.path = p;
+	
+	return self;
+}
+
++ imageViewWithImageAtPath:(NSString*) path;
+{
+	return [[[self alloc] initWithImageAtPath:path] autorelease];
+}
+
+- (void) dealloc;
+{
+	self.path = nil;
+	[super dealloc];
+}
+
+- (OIViewEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
+{
+	Evas_Object* o = evas_object_image_add(ecore_evas_get(ref));
+	evas_object_image_file_set(o, [self.path fileSystemRepresentation], NULL);
+	return o;
+}
+
+@synthesize path;
+- (void) setPath:(NSString*) p;
+{
+	if (p != path) {
+		[path release];
+		path = [p copy];
+		
+		if (self.evasObject)
+			evas_object_image_file_set(self.evasObject, [path fileSystemRepresentation], NULL);
+	}
 }
 
 @end
