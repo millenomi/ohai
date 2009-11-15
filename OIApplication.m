@@ -10,10 +10,30 @@
 
 #import <Ecore.h>
 
+static inline BOOL _OIHasEnvSetting(NSString* name) {
+	NSAutoreleasePool* pool = [NSAutoreleasePool new];
+
+	const char* utf8 = [name UTF8String];
+	const char* var = getenv(utf8);
+	BOOL has = (var && strcmp(var, "YES") == 0);
+	
+	fprintf(stderr, "Ohai: Setting is %d for %s.\n", has, utf8);
+	
+	[pool release];
+	
+	return has;
+}
+
 void OIInitializeProcess(int argc, const char* argv[]) {
-	char* allowTracing = getenv("OBJCEnableMsgTracing");
-	if (allowTracing && strcmp(allowTracing, "YES") == 0)
+//	char* allowTracing = getenv("OBJCEnableMsgTracing");
+//	if (allowTracing && strcmp(allowTracing, "YES") == 0)
+//		OBJCEnableMsgTracing();
+	
+	if (_OIHasEnvSetting(@"OBJCEnableMsgTracing"))
 		OBJCEnableMsgTracing();
+	
+	if (_OIHasEnvSetting(OIResponderEventLog))
+		fprintf(stderr, "Ohai: Responder event log enabled.\n");
 	
 	fprintf(stderr, "Ohai: Initializing the process for Cocoa.\n");
 	NSInitializeProcess(argc, argv);

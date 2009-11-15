@@ -60,10 +60,12 @@
 		frame = f;
 		hidden = YES;
 		evas = ecore_evas_software_x11_new(NULL, 0, f.origin.x, f.origin.y, f.size.width, f.size.height);
+		NSAssert(evas, @"Cannot create a window. Make sure the windowing system is running and accessible.");
+		
 		shapes = [NSMutableArray new];
 		
 		self.background = [OIRectangle rectangleWithFrame:f];
-		self.background.color = kOIColorWhite;
+		self.background.color = OIColorWhite;
 		self.background.nextResponder = self;
 		[self addShape:self.background];
 		[self.background becomeFirstResponder];

@@ -21,6 +21,7 @@ typedef void* OIShapeEvasObjectRef;
 	NSRect frame;
 	BOOL hidden;
 	OIColor color;
+	OIWindow* window;
 }
 
 - (void) addToWindow:(OIWindow*) window;
@@ -28,7 +29,7 @@ typedef void* OIShapeEvasObjectRef;
 
 @property(readonly) OIShapeEvasObjectRef evasObject;
 
-// Subclasses implement this.
+// Subclasses must implement this.
 - (OIShapeEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
 
 // -- - --
@@ -37,6 +38,8 @@ typedef void* OIShapeEvasObjectRef;
 @property(assign) NSRect frame;
 @property(assign) BOOL hidden;
 @property(assign) OIColor color;
+
+@property(assign) OIWindow* window;
 
 - (void) becomeFirstResponder;
 

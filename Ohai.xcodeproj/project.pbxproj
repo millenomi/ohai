@@ -23,6 +23,8 @@
 		155D2CEF10AF377A00473529 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CED10AF377A00473529 /* OIMap.m */; };
 		155D2DF910AF4C1900473529 /* OIShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2DF710AF4C1900473529 /* OIShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2DFA10AF4C1900473529 /* OIShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2DF810AF4C1900473529 /* OIShape.m */; };
+		158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 158E5DE510AFF8D1005F0C3C /* OILog.h */; };
+		158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */ = {isa = PBXBuildFile; fileRef = 158E5DE610AFF8D1005F0C3C /* OILog.m */; };
 		15C8705310AF607B000C05E1 /* OIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C8705210AF607B000C05E1 /* OIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,8 @@
 		155D2CED10AF377A00473529 /* OIMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIMap.m; sourceTree = "<group>"; };
 		155D2DF710AF4C1900473529 /* OIShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIShape.h; sourceTree = "<group>"; };
 		155D2DF810AF4C1900473529 /* OIShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIShape.m; sourceTree = "<group>"; };
+		158E5DE510AFF8D1005F0C3C /* OILog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OILog.h; sourceTree = "<group>"; };
+		158E5DE610AFF8D1005F0C3C /* OILog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OILog.m; sourceTree = "<group>"; };
 		15C8705210AF607B000C05E1 /* OIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIColor.h; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Ohai_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ohai_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				155D2B0110AF228B00473529 /* OIScreen.m */,
 				155D2CA610AF341E00473529 /* OIResponder.h */,
 				155D2CA710AF341E00473529 /* OIResponder.m */,
+				158E5DE510AFF8D1005F0C3C /* OILog.h */,
+				158E5DE610AFF8D1005F0C3C /* OILog.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 				155D2CEE10AF377A00473529 /* OIMap.h in Headers */,
 				155D2DF910AF4C1900473529 /* OIShape.h in Headers */,
 				15C8705310AF607B000C05E1 /* OIColor.h in Headers */,
+				158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +271,7 @@
 				155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */,
 				155D2CEF10AF377A00473529 /* OIMap.m in Sources */,
 				155D2DFA10AF4C1900473529 /* OIShape.m in Sources */,
+				158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,15 @@
 
 @end
 
+@interface NSObject (OIIntentDelegate)
+
+// The object that actually receives intent messages that would be sent to self by a OIMap.
+// Defaults to self.
+- (id) intentDelegate;
+
+@end
+
+
 @interface NSObject (OIIntents)
 
 // Intents for actionMap.

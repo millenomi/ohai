@@ -41,7 +41,7 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 
 @implementation OIShape
 
-@synthesize layer, frame, hidden, color, evasObject;
+@synthesize layer, frame, hidden, color, window, evasObject;
 
 - (void) dealloc;
 {
@@ -49,10 +49,10 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 	[super dealloc];
 }
 
-- (void) addToWindow:(OIWindow*) window;
+- (void) addToWindow:(OIWindow*) w;
 {
 	NSAssert(!evasObject, @"This shape was already added to another window!");
-	evasObject = [self addToEcoreEvasReference:window.ecoreEvas];
+	evasObject = [self addToEcoreEvasReference:w.ecoreEvas];
 	
 	NSRect r = self.frame;
 	evas_object_move(evasObject, r.origin.x, r.origin.y);
@@ -70,7 +70,8 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 	
 	evas_object_event_callback_add(evasObject, EVAS_CALLBACK_KEY_DOWN, &OIShapeKeyDownEvent, self);
 	evas_object_event_callback_add(evasObject, EVAS_CALLBACK_KEY_UP, &OIShapeKeyUpEvent, self);
-
+	
+	self.window = w;
 }
 
 - (void) removeFromWindow;
@@ -83,6 +84,16 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 
 	evas_object_del(evasObject);
 	evasObject = NULL;
+	
+	self.window = nil;
+}
+
+- (id) nextResponder;
+{
+	id next = [super nextResponder];
+	if (!next)
+		next = self.window;
+	return next;
 }
 
 // Subclasses implement this.
@@ -118,8 +129,8 @@ static void OIShapeKeyUpEvent(void* me, Evas* evas, Evas_Object* background, voi
 
 - (void) becomeFirstResponder;
 {
-	if (evasObject)
-		evas_object_focus_set(evasObject, 1);
+	NSAssert(evasObject, @"Only shapes added to a window can become first responders (focused).");
+	evas_object_focus_set(evasObject, 1);
 }
 
 @end

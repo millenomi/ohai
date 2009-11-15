@@ -19,6 +19,6 @@ static inline OIColor OIColorMakeGray(float gray, float alpha) {
 	return OIColorMake(gray, gray, gray, alpha);
 }
 
-#define kOIColorWhite OIColorMakeGray(1.0, 1.0)
-#define kOIColorBlack OIColorMakeGray(0.0, 1.0)
-#define kOIColorClear OIColorMakeGray(0.0, 0.0)
+#define OIColorWhite OIColorMakeGray(1.0, 1.0)
+#define OIColorBlack OIColorMakeGray(0.0, 1.0)
+#define OIColorClear OIColorMakeGray(0.0, 0.0)

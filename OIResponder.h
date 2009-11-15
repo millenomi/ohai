@@ -11,6 +11,9 @@
 #import "OIKeyboardEvent.h"
 #import "OIMap.h"
 
+// in the env, OIResponderEventLog=YES will cause events and intent sending to be logged.
+#define OIResponderEventLog (@"OIResponderEventLog")
+
 @interface NSObject (OIEvents)
 
 - (void) keyDown:(OIKeyboardEvent*) event;
@@ -20,10 +23,12 @@
 
 @interface OIResponder : NSObject {
 	id nextResponder;
+	id intentDelegate;
 	NSMutableArray* maps;
 }
 
 @property(assign) id nextResponder;
+@property(assign) id intentDelegate;
 
 // Maps.
 @property(readonly) NSMutableArray* maps;
