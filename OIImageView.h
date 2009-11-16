@@ -24,4 +24,7 @@
 
 @property(assign) BOOL sizeImageFrameToFit;
 
+@property(readonly) NSSize imageSize;
+@property(readonly, getter=isImageInformationAvailable) BOOL imageInformationAvailable;
+
 @end

@@ -129,4 +129,21 @@ OIViewSynthesizeAssignAccessors(sizeImageFrameToFit, setSizeImageFrameToFit:, BO
 	// Do nothing.
 }
 
+// -- Image info --
+
+- (NSSize) imageSize;
+{
+	if (!self.handle)
+		return NSZeroSize;
+	
+	int w, h;
+	evas_object_image_size_get(self.handle, &w, &h);
+	return NSMakeSize(w, h);
+}
+
+- (BOOL) isImageInformationAvailable;
+{
+	return self.handle != nil;
+}
+
 @end
