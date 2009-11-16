@@ -48,7 +48,7 @@ extern NSString* const OIKeyPlayPayse;
 	BOOL held;
 }
 
-- initWithSender:(id) se key:(NSString*) k /* modifiers:(-) modifiers locks:(-) locks */ intendedKey:(NSString*) i inputString:(NSString*) s provisionalInputString:(NSString*) p;
+- initWithSender:(id) se key:(NSString*) k /* modifiers:(-) modifiers locks:(-) locks */ intendedKey:(NSString*) i inputString:(NSString*) s provisionalInputString:(NSString*) p held:(BOOL) held;
 
 @property(readonly, retain) id sender;
 @property(readonly, copy) NSString* key, * intendedKey, * inputString, * provisionalInputString;

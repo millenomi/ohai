@@ -51,20 +51,15 @@ NSString* const OIKeyPlayPayse = @"XF86AudioPlay";
 
 @implementation OIKeyboardEvent
 
-- initWithSender:(id) se key:(NSString*) k intendedKey:(NSString*) i inputString:(NSString*) s provisionalInputString:(NSString*) p;
+- initWithSender:(id) se key:(NSString*) k intendedKey:(NSString*) i inputString:(NSString*) s provisionalInputString:(NSString*) p held:(BOOL) h;
 {
 	if (self = [super init]) {
 		self.sender = se;
-		
-		if ([k hasPrefix:@"Hold-"] && ![k isEqual:@"Hold-"]) {
-			held = YES;
-			k = [k substringFromIndex:5];
-		}
-		
 		self.key = k;
 		self.intendedKey = i;
 		self.inputString = s;
 		self.provisionalInputString = p;
+		held = h;
 	}
 	
 	return self;

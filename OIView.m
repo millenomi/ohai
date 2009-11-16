@@ -12,6 +12,44 @@
 
 #import "OILog.h"
 
+static void OIViewKeyDownEvent(void* me, Evas* evas, Evas_Object* background, void* eventInfo) {
+	Evas_Event_Key_Down* info = (Evas_Event_Key_Down*) eventInfo;
+	if (info->event_flags & EVAS_EVENT_FLAG_ON_HOLD) return;
+	BOOL held = evas_key_modifier_is_set(info->modifiers, "Alt");
+	
+	OIView* self = (id) me;
+	
+	OIKeyboardEvent* event = [[OIKeyboardEvent alloc]
+							  initWithSender:self
+							  key:(info->key? [NSString stringWithCString:info->key encoding:NSUTF8StringEncoding] : nil)
+							  intendedKey:(info->keyname? [NSString stringWithCString:info->keyname encoding:NSUTF8StringEncoding] : nil)
+							  inputString:(info->string? [NSString stringWithCString:info->string encoding:NSUTF8StringEncoding] : nil)
+							  provisionalInputString:(info->compose? [NSString stringWithCString:info->compose encoding:NSUTF8StringEncoding] : nil)
+							  held:held
+							  ];
+	[self keyDown:event];
+	[event release];
+}
+
+static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void* eventInfo) {
+	Evas_Event_Key_Up* info = (Evas_Event_Key_Up*) eventInfo;
+	if (info->event_flags & EVAS_EVENT_FLAG_ON_HOLD) return;
+	
+	OIView* self = (id) me;
+	BOOL held = evas_key_modifier_is_set(info->modifiers, "Alt");
+	
+	OIKeyboardEvent* event = [[OIKeyboardEvent alloc]
+							  initWithSender:self
+							  key:(info->key? [NSString stringWithCString:info->key encoding:NSUTF8StringEncoding] : nil)
+							  intendedKey:(info->keyname? [NSString stringWithCString:info->keyname encoding:NSUTF8StringEncoding] : nil)
+							  inputString:(info->string? [NSString stringWithCString:info->string encoding:NSUTF8StringEncoding] : nil)
+							  provisionalInputString:(info->compose? [NSString stringWithCString:info->compose encoding:NSUTF8StringEncoding] : nil)
+							  held:held
+							  ];
+	[self keyUp:event];
+	[event release];
+}
+
 @implementation OIView
 
 - (id) init
@@ -64,12 +102,24 @@
 			_OILog(OIWindowViewLog, @"%@ is now %@", key, [self performSelector:s]);
 		}
 	}
+	
+	evas_object_event_callback_add(handle, EVAS_CALLBACK_KEY_DOWN, &OIViewKeyDownEvent, self);
+	evas_object_event_callback_add(handle, EVAS_CALLBACK_KEY_UP, &OIViewKeyUpEvent, self);
+	if (!self.nextResponder)
+		self.nextResponder = w;
 }
 
 - (void) removeFromWindow;
 {
+	evas_object_event_callback_del_full(handle, EVAS_CALLBACK_KEY_DOWN, &OIViewKeyDownEvent, self);
+	evas_object_event_callback_del_full(handle, EVAS_CALLBACK_KEY_UP, &OIViewKeyUpEvent, self);
+	
 	evas_object_del(self.handle);
 	handle = NULL;
+	
+	if (self.nextResponder == self.window)
+		self.nextResponder = nil;
+	
 	self.window = nil;
 }
 
@@ -162,6 +212,10 @@ OIViewSynthesizeAssignAccessors(color, setColor:, OIColor, color)
 	
 	firstResponder = fr;
 	evas_object_focus_set(self.handle, fr? EINA_TRUE : EINA_FALSE);
+	if (fr) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:OIObjectDidBecomeFirstResponderNotification object:self];
+		_OILog(OIResponderEventLog, @"Did become first responder: %@", self);
+	}
 }
 
 - (void) becomeFirstResponder;

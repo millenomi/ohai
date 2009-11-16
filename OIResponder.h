@@ -14,6 +14,8 @@
 // in the env, OIResponderEventLog=YES will cause events and intent sending to be logged.
 #define OIResponderEventLog (@"OIResponderEventLog")
 
+extern NSString* const OIObjectDidBecomeFirstResponderNotification;
+
 @interface NSObject (OIEvents)
 
 - (void) keyDown:(OIKeyboardEvent*) event;

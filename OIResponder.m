@@ -11,6 +11,8 @@
 
 #import <Evas.h>
 
+NSString* const OIObjectDidBecomeFirstResponderNotification = @"OIObjectDidBecomeFirstResponder";
+
 #define OIRLog(x, ...) _OILog(OIResponderEventLog, @"%@ (%s): \n - " x, self, __func__, ## __VA_ARGS__)
 
 @interface OIResponder ()
