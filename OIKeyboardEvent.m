@@ -39,7 +39,7 @@ NSString* const OIKeyPrevious = @"Prior";
 
 NSString* const OIKeyRotateScreen = @"XF86RotateWindows";
 NSString* const OIKeySearch = @"XF86Search";
-NSString* const OIKeyPlayPayse = @"XF86AudioPlay";
+NSString* const OIKeyPlayPause = @"XF86AudioPlay";
 
 @interface OIKeyboardEvent ()
 
