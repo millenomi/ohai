@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150CD3D910B1457E00554834 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD3D710B1457E00554834 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		150CD3DA10B1457E00554834 /* OIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD3D810B1457E00554834 /* OIView.m */; };
+		150CD40F10B14B4D00554834 /* OIRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD40D10B14B4D00554834 /* OIRectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		150CD41010B14B4D00554834 /* OIRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD40E10B14B4D00554834 /* OIRectangle.m */; };
+		150CD44810B1556300554834 /* OIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD44610B1556300554834 /* OIImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		150CD44910B1556300554834 /* OIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD44710B1556300554834 /* OIImageView.m */; };
 		154B355110A7F8D50054FF31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		154B356F10A7F9C90054FF31 /* OIApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 154B356D10A7F9C90054FF31 /* OIApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		154B357010A7F9C90054FF31 /* OIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 154B356E10A7F9C90054FF31 /* OIApplication.m */; };
@@ -21,8 +27,6 @@
 		155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CD210AF357800473529 /* OIKeyboardEvent.m */; };
 		155D2CEE10AF377A00473529 /* OIMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CEC10AF377A00473529 /* OIMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2CEF10AF377A00473529 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CED10AF377A00473529 /* OIMap.m */; };
-		155D2DF910AF4C1900473529 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2DF710AF4C1900473529 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		155D2DFA10AF4C1900473529 /* OIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2DF810AF4C1900473529 /* OIView.m */; };
 		158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 158E5DE510AFF8D1005F0C3C /* OILog.h */; };
 		158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */ = {isa = PBXBuildFile; fileRef = 158E5DE610AFF8D1005F0C3C /* OILog.m */; };
 		15C8705310AF607B000C05E1 /* OIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C8705210AF607B000C05E1 /* OIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +56,12 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		150CD3D710B1457E00554834 /* OIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIView.h; sourceTree = "<group>"; };
+		150CD3D810B1457E00554834 /* OIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIView.m; sourceTree = "<group>"; };
+		150CD40D10B14B4D00554834 /* OIRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIRectangle.h; sourceTree = "<group>"; };
+		150CD40E10B14B4D00554834 /* OIRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIRectangle.m; sourceTree = "<group>"; };
+		150CD44610B1556300554834 /* OIImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIImageView.h; sourceTree = "<group>"; };
+		150CD44710B1556300554834 /* OIImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIImageView.m; sourceTree = "<group>"; };
 		154B356D10A7F9C90054FF31 /* OIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIApplication.h; sourceTree = "<group>"; };
 		154B356E10A7F9C90054FF31 /* OIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIApplication.m; sourceTree = "<group>"; };
 		154B358010A7FB000054FF31 /* Ohai.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Ohai.xcconfig; sourceTree = "<group>"; };
@@ -66,8 +76,6 @@
 		155D2CD210AF357800473529 /* OIKeyboardEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIKeyboardEvent.m; sourceTree = "<group>"; };
 		155D2CEC10AF377A00473529 /* OIMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIMap.h; sourceTree = "<group>"; };
 		155D2CED10AF377A00473529 /* OIMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIMap.m; sourceTree = "<group>"; };
-		155D2DF710AF4C1900473529 /* OIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIView.h; sourceTree = "<group>"; };
-		155D2DF810AF4C1900473529 /* OIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIView.m; sourceTree = "<group>"; };
 		158E5DE510AFF8D1005F0C3C /* OILog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OILog.h; sourceTree = "<group>"; };
 		158E5DE610AFF8D1005F0C3C /* OILog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OILog.m; sourceTree = "<group>"; };
 		15C8705210AF607B000C05E1 /* OIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIColor.h; sourceTree = "<group>"; };
@@ -171,9 +179,13 @@
 		155D2DF610AF4C1100473529 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
+				150CD40D10B14B4D00554834 /* OIRectangle.h */,
+				150CD44610B1556300554834 /* OIImageView.h */,
+				150CD44710B1556300554834 /* OIImageView.m */,
+				150CD40E10B14B4D00554834 /* OIRectangle.m */,
+				150CD3D710B1457E00554834 /* OIView.h */,
+				150CD3D810B1457E00554834 /* OIView.m */,
 				15C8705210AF607B000C05E1 /* OIColor.h */,
-				155D2DF710AF4C1900473529 /* OIView.h */,
-				155D2DF810AF4C1900473529 /* OIView.m */,
 			);
 			name = Shapes;
 			sourceTree = "<group>";
@@ -200,9 +212,11 @@
 				155D2CA810AF341E00473529 /* OIResponder.h in Headers */,
 				155D2CD310AF357800473529 /* OIKeyboardEvent.h in Headers */,
 				155D2CEE10AF377A00473529 /* OIMap.h in Headers */,
-				155D2DF910AF4C1900473529 /* OIView.h in Headers */,
 				15C8705310AF607B000C05E1 /* OIColor.h in Headers */,
 				158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */,
+				150CD3D910B1457E00554834 /* OIView.h in Headers */,
+				150CD40F10B14B4D00554834 /* OIRectangle.h in Headers */,
+				150CD44810B1556300554834 /* OIImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +284,10 @@
 				155D2CA910AF341E00473529 /* OIResponder.m in Sources */,
 				155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */,
 				155D2CEF10AF377A00473529 /* OIMap.m in Sources */,
-				155D2DFA10AF4C1900473529 /* OIView.m in Sources */,
 				158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */,
+				150CD3DA10B1457E00554834 /* OIView.m in Sources */,
+				150CD41010B14B4D00554834 /* OIRectangle.m in Sources */,
+				150CD44910B1556300554834 /* OIImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

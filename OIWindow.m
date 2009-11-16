@@ -11,6 +11,7 @@
 #import "OIScreen.h"
 #import "OIView.h"
 #import "OILog.h"
+#import "OIRectangle.h"
 
 #import <Ecore.h>
 #import <Ecore_X.h>
@@ -65,7 +66,7 @@
 		
 		views = [NSMutableArray new];
 		
-		self.background = [OIRectangle rectangleWithFrame:f];
+		self.background = [OIRectangle rectangleWithFrame:self.bounds];
 		self.background.color = OIColorWhite;
 		self.background.nextResponder = self;
 		[self addView:self.background];

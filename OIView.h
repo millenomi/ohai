@@ -1,67 +1,101 @@
 //
-//  OIShape.h
+//  OIView2.h
 //  Ohai
 //
-//  Created by ∞ on 14/11/09.
+//  Created by ∞ on 16/11/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#import "OIResponder.h"
 #import "OIWindow.h"
 #import "OIColor.h"
 
 typedef void* OIViewEvasObjectRef;
+typedef void* OIWindowEvasRef;
 
 @interface OIView : OIResponder {
-	OIViewEvasObjectRef evasObject;
+	OIViewEvasObjectRef handle;
+	OIWindow* window;
 	
-	short layer;
 	NSRect frame;
 	BOOL hidden;
 	OIColor color;
-	OIWindow* window;
+	BOOL firstResponder;
+	
+	NSArray* boundKeys;
 }
 
-- (void) addToWindow:(OIWindow*) window;
-- (void) removeFromWindow; // don't call this. use [window removeShape:x] instead.
-
-@property(readonly) OIViewEvasObjectRef evasObject;
-
-// Subclasses must implement this.
-- (OIViewEvasObjectRef) addToEcoreEvasReference:(OIWindowEcoreEvasRef) ref;
-
-// -- - --
-
-- (void) bringToFront;
-- (void) sendToBack;
+- (NSArray*) boundKeys; // Automatically assigned to handle and updated on change via OIViewSynthesize...-generated accessors. Requires defining a <key>ApplyToHandle and a <key>ByQueryingHandle pair that do setting and getting to/from the handle with the current value of the property.
+@property(readonly) OIViewEvasObjectRef handle;
 
 @property(assign) NSRect frame;
 @property(assign) BOOL hidden;
 @property(assign) OIColor color;
+@property(assign) BOOL firstResponder;
 
 @property(assign) OIWindow* window;
 
 - (void) becomeFirstResponder;
 
+- (void) bringToFront;
+- (void) sendToBack;
+
+// -- - --
+- (void) addToWindow:(OIWindow *)w;
+- (void) removeFromWindow;
+
+- (OIViewEvasObjectRef) createEvasObjectByAddingToCanvas:(OIWindowEvasRef) canvas;
+
 @end
 
-@interface OIRectangle : OIView {}
+#define OIViewSynthesizeGetter(name, type, ivar) \
+- (type) name ; \
+{ \
+	if (self.handle) \
+		return [self name##ByQueryingHandle]; \
+	else \
+		return ivar; \
+} \
 
-- (id) initWithFrame:(NSRect) frame;
-+ rectangleWithFrame:(NSRect) frame;
-
-@end
-
-@interface OIImageView : OIView {
-	NSString* path;
-	// NSData* data; // TODO
+#define OIViewSynthesizeAssignSetter(name, setterName, type, ivar) \
+- (void) setterName (type) q; \
+{ \
+	ivar = q; \
+	if (self.handle) \
+		[self name##ApplyToHandle]; \
 }
 
-- (id) initWithImageAtPath:(NSString*) path;
-+ imageViewWithImageAtPath:(NSString*) path;
+#define OIViewSynthesizeRetainSetter(name, setterName, type, ivar) \
+- (void) setterName (type) q; \
+{ \
+	if (ivar != q) { \
+		[ivar release]; \
+		ivar = [q retain]; \
+	} \
+	if (self.handle) \
+		[self name##ApplyToHandle]; \
+}
 
-@property(copy) NSString* path;
+#define OIViewSynthesizeCopySetter(name, setterName, type, ivar) \
+- (void) setterName (type) q; \
+{ \
+	if (ivar != q) { \
+		[ivar release]; \
+		ivar = [q copy]; \
+	} \
+	if (self.handle) \
+		[self name##ApplyToHandle]; \
+}
 
-@end
+#define OIViewSynthesizeAssignAccessors(name, setterName, type, ivar) \
+OIViewSynthesizeGetter(name, type, ivar) \
+OIViewSynthesizeAssignSetter(name, setterName, type, ivar)
+
+#define OIViewSynthesizeRetainAccessors(name, setterName, type, ivar) \
+OIViewSynthesizeGetter(name, type, ivar) \
+OIViewSynthesizeRetainSetter(name, setterName, type, ivar)
+
+#define OIViewSynthesizeCopyAccessors(name, setterName, type, ivar) \
+OIViewSynthesizeGetter(name, type, ivar) \
+OIViewSynthesizeCopySetter(name, setterName, type, ivar)

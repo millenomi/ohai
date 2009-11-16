@@ -22,3 +22,7 @@ static inline OIColor OIColorMakeGray(float gray, float alpha) {
 #define OIColorWhite OIColorMakeGray(1.0, 1.0)
 #define OIColorBlack OIColorMakeGray(0.0, 1.0)
 #define OIColorClear OIColorMakeGray(0.0, 0.0)
+
+static inline NSString* NSStringFromOIColor(OIColor c) {
+	return [NSString stringWithFormat:@"(OIColor) { .red = %d, .green = %d, .blue = %d, .alpha = %d }", c.red, c.green, c.blue, c.alpha];
+}
