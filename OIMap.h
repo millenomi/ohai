@@ -55,7 +55,7 @@ Adding this map to a responder allows it to receive intents tied to either speci
 /** \category OIIntentDelegate
 Contains the intentDelegate method, which allows a map to retarget an intent message.
 */
-@interface NSObject (OIIntentDelegate)
+@interface NSObject (OIIntentExtras)
 
 /** \addtogroup categories Categories. */
 /*@{*/
@@ -64,6 +64,16 @@ Contains the intentDelegate method, which allows a map to retarget an intent mes
 Any object may implement this method to indicate that their intent messages must be sent not to themselves, but to another object. OIResponder has a corresponding property for easy overriding.
 */
 - (id) intentDelegate;
+
+/**
+ This method is called before any intent method is to check whether, in the current state of this object, handling this intent makes sense. It can be used to try other intents, or to pass the event up the responder chain (by returning NO from OIMap's methods) to some other object that can.
+ 
+ The default implementation returns YES if the method was implemented in the receiver's class, NO otherwise.
+ 
+ \param intent The intent selector that's going to be invoked.
+ \param r The original receiver of the intent. This is the object that received the event (which is the same as the receiver unless that object has an intent delegate).
+ */
+- (BOOL) canPerformIntent:(SEL) intent forObject:(id) r;
 
 /*@}*/
 

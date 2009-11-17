@@ -80,11 +80,11 @@
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)rorig;
 {
 	id r = [rorig intentDelegate];
-	if ([e.key isEqual:OIKeyLeftArrow] || [e.key isEqual:OIKeyUpArrow] || [e.key isEqual:OIKeyNumber9]) {
+	if (([e.key isEqual:OIKeyLeftArrow] || [e.key isEqual:OIKeyUpArrow] || [e.key isEqual:OIKeyNumber9]) && [r canPerformIntent:@selector(previousPage) forObject:rorig]) {
 		OIMLog(@"Previous page", e, rorig);
 		[r previousPage];
 		return YES;
-	} else if ([e.key isEqual:OIKeyRightArrow] || [e.key isEqual:OIKeyDownArrow] || [e.key isEqual:OIKeyNumber0]) {
+	} else if (([e.key isEqual:OIKeyRightArrow] || [e.key isEqual:OIKeyDownArrow] || [e.key isEqual:OIKeyNumber0]) && [r canPerformIntent:@selector(nextPage) forObject:rorig]) {
 		OIMLog(@"Next page", e, rorig);
 		[r nextPage];
 		return YES;
@@ -101,25 +101,26 @@
 {
 	id r = [rorig intentDelegate];
 	if ([e.key isEqual:OIKeyEscape]) {
-		if (e.held) {
+		if (e.held && [r canPerformIntent:@selector(forceCancelOrBack) forObject:rorig]) {
 			OIMLog(@"Force cancel", e, rorig);
 			[r forceCancelOrBack];
-		} else {
+			return YES;
+		} else if ([r canPerformIntent:@selector(cancelOrBack) forObject:rorig]) {
 			OIMLog(@"Cancel", e, rorig);
 			[r cancelOrBack];
+			return YES;
 		}
 		
-		return YES;
 	} else if ([e.key isEqual:OIKeyReturn]) {
-		if (![r respondsToSelector:@selector(canPerformAction)] || [r canPerformAction]) {
+		if ([r canPerformIntent:@selector(performAction) forObject:rorig]) {
 			OIMLog(@"Perform action", e, rorig);
 			[r performAction];
-		} else {
+			return YES;
+		} else if ([r canPerformIntent:@selector(showActions) forObject:rorig]) {
 			OIMLog(@"Show actions", e, rorig);
 			[r showActions];
+			return YES;
 		}
-		
-		return YES;
 	}
 	
 	return NO;
@@ -132,19 +133,19 @@
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)rorig;
 {
 	id r = [rorig intentDelegate];
-	if ([e.key isEqual:OIKeyNumber2]) {
+	if ([e.key isEqual:OIKeyNumber2] && [r canPerformIntent:@selector(up) forObject:rorig]) {
 		OIMLog(@"Up", e, rorig);
 		[r up];
 		return YES;
-	} else if ([e.key isEqual:OIKeyNumber7]) {
+	} else if ([e.key isEqual:OIKeyNumber7] && [r canPerformIntent:@selector(down) forObject:rorig]) {
 		OIMLog(@"Down", e, rorig);
 		[r down];
 		return YES;
-	} else if ([e.key isEqual:OIKeyNumber8]) {
+	} else if ([e.key isEqual:OIKeyNumber8] && [r canPerformIntent:@selector(right) forObject:rorig]) {
 		OIMLog(@"Right", e, rorig);
 		[r right];
 		return YES;
-	} else if ([e.key isEqual:OIKeyNumber6]) {
+	} else if ([e.key isEqual:OIKeyNumber6] && [r canPerformIntent:@selector(left) forObject:rorig]) {
 		OIMLog(@"Left", e, rorig);
 		[r left];
 		return YES;
@@ -159,18 +160,22 @@
 
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)rorig;
 {
+	BOOL sent = NO;
+	
 	id r = [rorig intentDelegate];
-	if (e.inputString) {
+	if (e.inputString && [r canPerformIntent:@selector(appendString:) forObject:rorig]) {
 		OIMLog(@"Append string", e, rorig);
 		[r appendString:e.inputString];
+		sent = YES;
 	}
 	
-	if (e.provisionalInputString && [r respondsToSelector:@selector(setProvisionalString:)]) {
+	if (e.provisionalInputString && [r canPerformIntent:@selector(setProvisionalString:) forObject:rorig]) {
 		OIMLog(@"Set provisional string", e, rorig);
 		[r setProvisionalString:e.provisionalInputString];
+		sent = YES;
 	}
 	
-	return e.inputString && e.provisionalInputString;
+	return sent;
 }
 
 @end
@@ -180,15 +185,15 @@
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent *)e on:(id)rorig;
 {
 	id r = [rorig intentDelegate];
-	if ([e.key isEqual:OIKeyNumber6]) {
+	if ([e.key isEqual:OIKeyNumber6] && [r canPerformIntent:@selector(bookmark) forObject:rorig]) {
 		OIMLog(@"Bookmark", e, rorig);
 		[r bookmark];
 		return YES;
-	} else if ([e.key isEqual:OIKeyNumber7]) {
+	} else if ([e.key isEqual:OIKeyNumber7] && [r canPerformIntent:@selector(showDestinationsList) forObject:rorig]) {
 		OIMLog(@"Show destinations list", e, rorig);
 		[r showDestinationsList];
 		return YES;
-	} else if ([e.key isEqual:OIKeyNumber8]) {
+	} else if ([e.key isEqual:OIKeyNumber8] && [r canPerformIntent:@selector(zoom) forObject:rorig]) {
 		OIMLog(@"Zoom", e, rorig);
 		[r zoom];
 		return YES;
@@ -199,11 +204,16 @@
 
 @end
 
-@implementation NSObject (OIIntentDelegate)
+@implementation NSObject (OIIntentExtras)
 
 - (id) intentDelegate;
 {
 	return self;
+}
+
+- (BOOL) canPerformIntent:(SEL) intent forObject:(id) r;
+{
+	return [self respondsToSelector:intent];
 }
 
 @end
