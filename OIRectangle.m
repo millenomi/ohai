@@ -11,6 +11,11 @@
 
 @implementation OIRectangle
 
++ (id) rectangle;
+{
+	return [[self new] autorelease];
+}
+
 - (id) initWithFrame:(NSRect) f;
 {
 	if (self = [super init])
