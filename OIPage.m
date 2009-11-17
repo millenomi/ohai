@@ -37,6 +37,7 @@
 	self.view.frame = f;
 	self.view.nextResponder = r;
 	[w addView:self.view];
+	[self.view becomeFirstResponder];
 }
 
 - (void) removeFromWindow;
