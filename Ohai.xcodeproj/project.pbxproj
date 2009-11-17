@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150772DB10B28C9200A32F62 /* OIPagedController.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772D910B28C9200A32F62 /* OIPagedController.h */; };
+		150772DC10B28C9200A32F62 /* OIPagedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772DA10B28C9200A32F62 /* OIPagedController.m */; };
+		150772E310B2907600A32F62 /* OIPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772E110B2907600A32F62 /* OIPage.h */; };
+		150772E410B2907600A32F62 /* OIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772E210B2907600A32F62 /* OIPage.m */; };
 		150CD3D910B1457E00554834 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD3D710B1457E00554834 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		150CD3DA10B1457E00554834 /* OIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD3D810B1457E00554834 /* OIView.m */; };
 		150CD40F10B14B4D00554834 /* OIRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD40D10B14B4D00554834 /* OIRectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +60,10 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		150772D910B28C9200A32F62 /* OIPagedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIPagedController.h; sourceTree = "<group>"; };
+		150772DA10B28C9200A32F62 /* OIPagedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIPagedController.m; sourceTree = "<group>"; };
+		150772E110B2907600A32F62 /* OIPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIPage.h; sourceTree = "<group>"; };
+		150772E210B2907600A32F62 /* OIPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIPage.m; sourceTree = "<group>"; };
 		150CD3D710B1457E00554834 /* OIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIView.h; sourceTree = "<group>"; };
 		150CD3D810B1457E00554834 /* OIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIView.m; sourceTree = "<group>"; };
 		150CD40D10B14B4D00554834 /* OIRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIRectangle.h; sourceTree = "<group>"; };
@@ -140,7 +148,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				155D2DF610AF4C1100473529 /* Shapes */,
+				155D2DF610AF4C1100473529 /* Views */,
 				155D2CEC10AF377A00473529 /* OIMap.h */,
 				155D2CED10AF377A00473529 /* OIMap.m */,
 				155D2CD110AF357800473529 /* OIKeyboardEvent.h */,
@@ -176,9 +184,21 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		155D2DF610AF4C1100473529 /* Shapes */ = {
+		150772DE10B28F0200A32F62 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				150772E110B2907600A32F62 /* OIPage.h */,
+				150772E210B2907600A32F62 /* OIPage.m */,
+				150772D910B28C9200A32F62 /* OIPagedController.h */,
+				150772DA10B28C9200A32F62 /* OIPagedController.m */,
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
+		155D2DF610AF4C1100473529 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				150772DE10B28F0200A32F62 /* Pages */,
 				150CD3D710B1457E00554834 /* OIView.h */,
 				150CD3D810B1457E00554834 /* OIView.m */,
 				150CD44610B1556300554834 /* OIImageView.h */,
@@ -187,7 +207,7 @@
 				150CD40E10B14B4D00554834 /* OIRectangle.m */,
 				15C8705210AF607B000C05E1 /* OIColor.h */,
 			);
-			name = Shapes;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -217,6 +237,8 @@
 				150CD3D910B1457E00554834 /* OIView.h in Headers */,
 				150CD40F10B14B4D00554834 /* OIRectangle.h in Headers */,
 				150CD44810B1556300554834 /* OIImageView.h in Headers */,
+				150772DB10B28C9200A32F62 /* OIPagedController.h in Headers */,
+				150772E310B2907600A32F62 /* OIPage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +310,8 @@
 				150CD3DA10B1457E00554834 /* OIView.m in Sources */,
 				150CD41010B14B4D00554834 /* OIRectangle.m in Sources */,
 				150CD44910B1556300554834 /* OIImageView.m in Sources */,
+				150772DC10B28C9200A32F62 /* OIPagedController.m in Sources */,
+				150772E410B2907600A32F62 /* OIPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
