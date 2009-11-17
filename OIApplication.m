@@ -126,9 +126,6 @@ static int OIRunLoopHandleEcoreExitEvent(void* myself, int eventType, void* even
 
 - (void) terminate;
 {
-	[loopTasker invalidate];
-	[loopTasker release]; loopTasker = nil;
-	
 	NSLog(@"%@: Terminating the app.", self);
 	
 	if ([self.delegate respondsToSelector:@selector(applicationWillTerminate:)])

@@ -191,9 +191,9 @@ OIViewSynthesizeAssignAccessors(hidden, setHidden:, BOOL, hidden)
 
 - (OIColor) colorByQueryingHandle;
 {
-	OIColor c;
-	evas_object_color_get(self.handle, &c.red, &c.green, &c.blue, &c.alpha);
-	return c;
+	int r, g, b, a;
+	evas_object_color_get(self.handle, &r, &g, &b, &a);
+	return OIColorMakeInt(r, g, b, a);
 }
 
 OIViewSynthesizeAssignAccessors(color, setColor:, OIColor, color)
