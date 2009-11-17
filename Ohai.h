@@ -21,3 +21,6 @@
 #import <Ohai/OIColor.h>
 #import <Ohai/OIRectangle.h>
 #import <Ohai/OIImageView.h>
+
+#import <Ohai/OIPage.h>
+#import <Ohai/OIPagedController.h>

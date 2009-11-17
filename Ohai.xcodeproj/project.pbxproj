@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150772DB10B28C9200A32F62 /* OIPagedController.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772D910B28C9200A32F62 /* OIPagedController.h */; };
+		150772DB10B28C9200A32F62 /* OIPagedController.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772D910B28C9200A32F62 /* OIPagedController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		150772DC10B28C9200A32F62 /* OIPagedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772DA10B28C9200A32F62 /* OIPagedController.m */; };
-		150772E310B2907600A32F62 /* OIPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772E110B2907600A32F62 /* OIPage.h */; };
+		150772E310B2907600A32F62 /* OIPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772E110B2907600A32F62 /* OIPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		150772E410B2907600A32F62 /* OIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772E210B2907600A32F62 /* OIPage.m */; };
 		150CD3D910B1457E00554834 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD3D710B1457E00554834 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		150CD3DA10B1457E00554834 /* OIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD3D810B1457E00554834 /* OIView.m */; };
