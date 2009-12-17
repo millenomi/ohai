@@ -6,6 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "OITargets.h"
+
+#if OITargetFeatureEnlightenment
+
 #import "OIView.h"
 #import <Ecore_Evas.h>
 #import <Evas.h>
@@ -63,7 +67,7 @@ static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void
 }
 
 
-@synthesize handle, window;
+@synthesize nativeHandle, window;
 
 - (void) dealloc;
 {
@@ -86,9 +90,9 @@ static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void
 
 - (void) addToWindow:(OIWindow*) w;
 {
-	NSAssert(!handle, @"This shape was already added to another window!");
+	NSAssert(!nativeHandle, @"This shape was already added to another window!");
 	
-	handle = [self createEvasObjectByAddingToCanvas:ecore_evas_get(w.ecoreEvas)];
+	nativeHandle = [self createNativeObjectByAddingToNativeCanvas:ecore_evas_get(w.nativeWindow)];
 	self.window = w;
 	
 	for (NSString* key in self.boundKeys) {
@@ -103,19 +107,19 @@ static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void
 		}
 	}
 	
-	evas_object_event_callback_add(handle, EVAS_CALLBACK_KEY_DOWN, &OIViewKeyDownEvent, self);
-	evas_object_event_callback_add(handle, EVAS_CALLBACK_KEY_UP, &OIViewKeyUpEvent, self);
+	evas_object_event_callback_add(nativeHandle, EVAS_CALLBACK_KEY_DOWN, &OIViewKeyDownEvent, self);
+	evas_object_event_callback_add(nativeHandle, EVAS_CALLBACK_KEY_UP, &OIViewKeyUpEvent, self);
 	if (!self.nextResponder)
 		self.nextResponder = w;
 }
 
 - (void) removeFromWindow;
 {
-	evas_object_event_callback_del_full(handle, EVAS_CALLBACK_KEY_DOWN, &OIViewKeyDownEvent, self);
-	evas_object_event_callback_del_full(handle, EVAS_CALLBACK_KEY_UP, &OIViewKeyUpEvent, self);
+	evas_object_event_callback_del_full(nativeHandle, EVAS_CALLBACK_KEY_DOWN, &OIViewKeyDownEvent, self);
+	evas_object_event_callback_del_full(nativeHandle, EVAS_CALLBACK_KEY_UP, &OIViewKeyUpEvent, self);
 	
-	evas_object_del(self.handle);
-	handle = NULL;
+	evas_object_del(self.nativeHandle);
+	nativeHandle = NULL;
 	
 	if (self.nextResponder == self.window)
 		self.nextResponder = nil;
@@ -123,7 +127,7 @@ static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void
 	self.window = nil;
 }
 
-- (OIViewEvasObjectRef) createEvasObjectByAddingToCanvas:(OIWindowEvasRef)canvas;
+- (OIViewNativeHandle) createNativeObjectByAddingToNativeCanvas:(OICanvasNativeHandle)canvas;
 {
 	NSAssert(NO, @"This method must be overridden by subclasses!");
 	return NULL;
@@ -135,7 +139,7 @@ static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void
 
 - (void) frameApplyToHandle;
 {
-	NSRect r = frame; Evas_Object* me = self.handle;
+	NSRect r = frame; Evas_Object* me = self.nativeHandle;
 	evas_object_move(me, r.origin.x, r.origin.y);
 	evas_object_resize(me, r.size.width, r.size.height);	
 }
@@ -148,7 +152,7 @@ static void OIViewKeyUpEvent(void* me, Evas* evas, Evas_Object* background, void
 - (NSRect) frameByQueryingHandle;
 {
 	Evas_Coord x, y, w, h;
-	evas_object_geometry_get(self.handle, &x, &y, &w, &h);
+	evas_object_geometry_get(self.nativeHandle, &x, &y, &w, &h);
 	return NSMakeRect(x, y, w, h);
 }
 
@@ -159,9 +163,9 @@ OIViewSynthesizeAssignAccessors(frame, setFrame:, NSRect, frame)
 - (void) hiddenApplyToHandle;
 {
 	if (!hidden)
-		evas_object_show(self.handle);
+		evas_object_show(self.nativeHandle);
 	else
-		evas_object_hide(self.handle);
+		evas_object_hide(self.nativeHandle);
 }
 
 - (NSString*) hiddenDescription;
@@ -171,7 +175,7 @@ OIViewSynthesizeAssignAccessors(frame, setFrame:, NSRect, frame)
 
 - (BOOL) hiddenByQueryingHandle;
 {
-	return evas_object_visible_get(self.handle) == EINA_FALSE;
+	return evas_object_visible_get(self.nativeHandle) == EINA_FALSE;
 }
 
 OIViewSynthesizeAssignAccessors(hidden, setHidden:, BOOL, hidden)
@@ -181,7 +185,7 @@ OIViewSynthesizeAssignAccessors(hidden, setHidden:, BOOL, hidden)
 - (void) colorApplyToHandle;
 {
 	OIColor c = color;
-	evas_object_color_set(self.handle, c.red, c.green, c.blue, c.alpha);
+	evas_object_color_set(self.nativeHandle, c.red, c.green, c.blue, c.alpha);
 }
 
 - (NSString*) colorDescription;
@@ -192,7 +196,7 @@ OIViewSynthesizeAssignAccessors(hidden, setHidden:, BOOL, hidden)
 - (OIColor) colorByQueryingHandle;
 {
 	int r, g, b, a;
-	evas_object_color_get(self.handle, &r, &g, &b, &a);
+	evas_object_color_get(self.nativeHandle, &r, &g, &b, &a);
 	return OIColorMakeInt(r, g, b, a);
 }
 
@@ -202,16 +206,16 @@ OIViewSynthesizeAssignAccessors(color, setColor:, OIColor, color)
 
 - (BOOL) firstResponder;
 {
-	return self.handle? evas_object_focus_get(self.handle) == EINA_TRUE : NO;
+	return self.nativeHandle? evas_object_focus_get(self.nativeHandle) == EINA_TRUE : NO;
 }
 
 - (void) setFirstResponder:(BOOL) fr;
 {
-	if (!self.handle)
+	if (!self.nativeHandle)
 		return;
 	
 	firstResponder = fr;
-	evas_object_focus_set(self.handle, fr? EINA_TRUE : EINA_FALSE);
+	evas_object_focus_set(self.nativeHandle, fr? EINA_TRUE : EINA_FALSE);
 	if (fr) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:OIObjectDidBecomeFirstResponderNotification object:self];
 		_OILog(OIResponderEventLog, @"Did become first responder: %@", self);
@@ -226,14 +230,18 @@ OIViewSynthesizeAssignAccessors(color, setColor:, OIColor, color)
 
 - (void) bringToFront;
 {
-	if (self.handle)
-		evas_object_raise(self.handle);
+	if (self.nativeHandle)
+		evas_object_raise(self.nativeHandle);
 }
 
 - (void) sendToBack;
 {
-	if (self.handle)
-		evas_object_lower(self.handle);
+	if (self.nativeHandle)
+		evas_object_lower(self.nativeHandle);
 }
 
 @end
+
+#else
+#error This file should only be included in an Enlightenment build.
+#endif

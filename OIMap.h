@@ -25,6 +25,10 @@ An input map maps keyboard events to "intents", probable user intentions. The bu
 */
 - (BOOL) performIntentForKeyDownEvent:(OIKeyboardEvent*) e on:(id) r;
 
+@end
+
+@interface OIMap (OIDeviceDependentMaps)
+
 /**
 Adding this map to a responder enables 'next page' and 'previous page' navigation intents, tied to existing page next/back keys or suitable replacements.
 */

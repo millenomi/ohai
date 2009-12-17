@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "OITargets.h"
+
 #import "OIWindow.h"
 #import "OIColor.h"
 
-typedef void* OIViewEvasObjectRef;
-typedef void* OIWindowEvasRef;
+typedef void* OIViewNativeHandle;
+typedef void* OICanvasNativeHandle;
 
 @interface OIView : OIResponder {
-	OIViewEvasObjectRef handle;
+	OIViewNativeHandle nativeHandle;
 	OIWindow* window;
 	
 	NSRect frame;
@@ -27,7 +29,7 @@ typedef void* OIWindowEvasRef;
 }
 
 - (NSArray*) boundKeys; // Automatically assigned to handle and updated on change via OIViewSynthesize...-generated accessors. Requires defining a <key>ApplyToHandle and a <key>ByQueryingHandle pair that do setting and getting to/from the handle with the current value of the property.
-@property(readonly) OIViewEvasObjectRef handle;
+@property(readonly) OIViewNativeHandle nativeHandle;
 
 @property(assign) NSRect frame;
 @property(assign) BOOL hidden;
@@ -45,14 +47,14 @@ typedef void* OIWindowEvasRef;
 - (void) addToWindow:(OIWindow *)w;
 - (void) removeFromWindow;
 
-- (OIViewEvasObjectRef) createEvasObjectByAddingToCanvas:(OIWindowEvasRef) canvas;
+- (OIViewNativeHandle) createNativeObjectByAddingToNativeCanvas:(OICanvasNativeHandle) canvas;
 
 @end
 
 #define OIViewSynthesizeGetter(name, type, ivar) \
 - (type) name ; \
 { \
-	if (self.handle) \
+	if (self.nativeHandle) \
 		return [self name##ByQueryingHandle]; \
 	else \
 		return ivar; \
@@ -62,7 +64,7 @@ typedef void* OIWindowEvasRef;
 - (void) setterName (type) q; \
 { \
 	ivar = q; \
-	if (self.handle) \
+	if (self.nativeHandle) \
 		[self name##ApplyToHandle]; \
 }
 
@@ -73,7 +75,7 @@ typedef void* OIWindowEvasRef;
 		[ivar release]; \
 		ivar = [q retain]; \
 	} \
-	if (self.handle) \
+	if (self.nativeHandle) \
 		[self name##ApplyToHandle]; \
 }
 
@@ -84,7 +86,7 @@ typedef void* OIWindowEvasRef;
 		[ivar release]; \
 		ivar = [q copy]; \
 	} \
-	if (self.handle) \
+	if (self.nativeHandle) \
 		[self name##ApplyToHandle]; \
 }
 

@@ -12,25 +12,48 @@
 		150772E310B2907600A32F62 /* OIPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772E110B2907600A32F62 /* OIPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		150772E410B2907600A32F62 /* OIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772E210B2907600A32F62 /* OIPage.m */; };
 		150CD3D910B1457E00554834 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD3D710B1457E00554834 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		150CD3DA10B1457E00554834 /* OIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD3D810B1457E00554834 /* OIView.m */; };
+		150CD3DA10B1457E00554834 /* OIView_E17.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD3D810B1457E00554834 /* OIView_E17.m */; };
 		150CD40F10B14B4D00554834 /* OIRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD40D10B14B4D00554834 /* OIRectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		150CD41010B14B4D00554834 /* OIRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD40E10B14B4D00554834 /* OIRectangle.m */; };
+		150CD41010B14B4D00554834 /* OIRectangle_E17.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD40E10B14B4D00554834 /* OIRectangle_E17.m */; };
 		150CD44810B1556300554834 /* OIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD44610B1556300554834 /* OIImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		150CD44910B1556300554834 /* OIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD44710B1556300554834 /* OIImageView.m */; };
+		150CD44910B1556300554834 /* OIImageView_E17.m in Sources */ = {isa = PBXBuildFile; fileRef = 150CD44710B1556300554834 /* OIImageView_E17.m */; };
 		154B355110A7F8D50054FF31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		154B356F10A7F9C90054FF31 /* OIApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 154B356D10A7F9C90054FF31 /* OIApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		154B357010A7F9C90054FF31 /* OIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 154B356E10A7F9C90054FF31 /* OIApplication.m */; };
+		154B357010A7F9C90054FF31 /* OIApplication_E17.m in Sources */ = {isa = PBXBuildFile; fileRef = 154B356E10A7F9C90054FF31 /* OIApplication_E17.m */; };
 		154B364410A80DD90054FF31 /* Ohai.h in Headers */ = {isa = PBXBuildFile; fileRef = 154B364310A80DD90054FF31 /* Ohai.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2AF510AF20EC00473529 /* OIWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2AF310AF20EC00473529 /* OIWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		155D2AF610AF20EC00473529 /* OIWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2AF410AF20EC00473529 /* OIWindow.m */; };
+		155D2AF610AF20EC00473529 /* OIWindow_E17.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2AF410AF20EC00473529 /* OIWindow_E17.m */; };
 		155D2B0210AF228B00473529 /* OIScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2B0010AF228B00473529 /* OIScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		155D2B0310AF228B00473529 /* OIScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2B0110AF228B00473529 /* OIScreen.m */; };
+		155D2B0310AF228B00473529 /* OIScreen_E17.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2B0110AF228B00473529 /* OIScreen_E17.m */; };
 		155D2CA810AF341E00473529 /* OIResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CA610AF341E00473529 /* OIResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2CA910AF341E00473529 /* OIResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CA710AF341E00473529 /* OIResponder.m */; };
 		155D2CD310AF357800473529 /* OIKeyboardEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CD110AF357800473529 /* OIKeyboardEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CD210AF357800473529 /* OIKeyboardEvent.m */; };
 		155D2CEE10AF377A00473529 /* OIMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CEC10AF377A00473529 /* OIMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		155D2CEF10AF377A00473529 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CED10AF377A00473529 /* OIMap.m */; };
+		1561AB5510DACC8D00FB6467 /* OITargets.h in Headers */ = {isa = PBXBuildFile; fileRef = 1561AB5410DACC8D00FB6467 /* OITargets.h */; };
+		1561AB5610DACC8D00FB6467 /* OITargets.h in Headers */ = {isa = PBXBuildFile; fileRef = 1561AB5410DACC8D00FB6467 /* OITargets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561AB5910DACD4600FB6467 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1561AB5810DACD4600FB6467 /* OIMap.m */; };
+		1561AB8E10DACFEA00FB6467 /* OIMap_HanlinV3.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CED10AF377A00473529 /* OIMap_HanlinV3.m */; };
+		1561ABB710DAD31400FB6467 /* OIKeyboardEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CD210AF357800473529 /* OIKeyboardEvent.m */; };
+		1561ABB810DAD31400FB6467 /* OILog.m in Sources */ = {isa = PBXBuildFile; fileRef = 158E5DE610AFF8D1005F0C3C /* OILog.m */; };
+		1561ABB910DAD31400FB6467 /* OIMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1561AB5810DACD4600FB6467 /* OIMap.m */; };
+		1561ABBB10DAD31400FB6467 /* OIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772E210B2907600A32F62 /* OIPage.m */; };
+		1561ABBC10DAD31400FB6467 /* OIPagedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150772DA10B28C9200A32F62 /* OIPagedController.m */; };
+		1561ABBE10DAD31400FB6467 /* OIResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 155D2CA710AF341E00473529 /* OIResponder.m */; };
+		1561ABC210DAD32000FB6467 /* Ohai.h in Headers */ = {isa = PBXBuildFile; fileRef = 154B364310A80DD90054FF31 /* Ohai.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC310DAD32000FB6467 /* OIApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 154B356D10A7F9C90054FF31 /* OIApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC410DAD32000FB6467 /* OIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C8705210AF607B000C05E1 /* OIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC510DAD32000FB6467 /* OIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD44610B1556300554834 /* OIImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC610DAD32000FB6467 /* OIKeyboardEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CD110AF357800473529 /* OIKeyboardEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC710DAD32000FB6467 /* OILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 158E5DE510AFF8D1005F0C3C /* OILog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC810DAD32000FB6467 /* OIMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CEC10AF377A00473529 /* OIMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABC910DAD32000FB6467 /* OIPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772E110B2907600A32F62 /* OIPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABCA10DAD32000FB6467 /* OIPagedController.h in Headers */ = {isa = PBXBuildFile; fileRef = 150772D910B28C9200A32F62 /* OIPagedController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABCB10DAD32000FB6467 /* OIRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD40D10B14B4D00554834 /* OIRectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABCC10DAD32000FB6467 /* OIResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2CA610AF341E00473529 /* OIResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABCD10DAD32000FB6467 /* OIScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2B0010AF228B00473529 /* OIScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABCE10DAD32000FB6467 /* OIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 150CD3D710B1457E00554834 /* OIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1561ABCF10DAD32000FB6467 /* OIWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2AF310AF20EC00473529 /* OIWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		158E5DE710AFF8D1005F0C3C /* OILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 158E5DE510AFF8D1005F0C3C /* OILog.h */; };
 		158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */ = {isa = PBXBuildFile; fileRef = 158E5DE610AFF8D1005F0C3C /* OILog.m */; };
 		15C8705310AF607B000C05E1 /* OIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C8705210AF607B000C05E1 /* OIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,25 +88,29 @@
 		150772E110B2907600A32F62 /* OIPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIPage.h; sourceTree = "<group>"; };
 		150772E210B2907600A32F62 /* OIPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIPage.m; sourceTree = "<group>"; };
 		150CD3D710B1457E00554834 /* OIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIView.h; sourceTree = "<group>"; };
-		150CD3D810B1457E00554834 /* OIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIView.m; sourceTree = "<group>"; };
+		150CD3D810B1457E00554834 /* OIView_E17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIView_E17.m; sourceTree = "<group>"; };
 		150CD40D10B14B4D00554834 /* OIRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIRectangle.h; sourceTree = "<group>"; };
-		150CD40E10B14B4D00554834 /* OIRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIRectangle.m; sourceTree = "<group>"; };
+		150CD40E10B14B4D00554834 /* OIRectangle_E17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIRectangle_E17.m; sourceTree = "<group>"; };
 		150CD44610B1556300554834 /* OIImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIImageView.h; sourceTree = "<group>"; };
-		150CD44710B1556300554834 /* OIImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIImageView.m; sourceTree = "<group>"; };
+		150CD44710B1556300554834 /* OIImageView_E17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIImageView_E17.m; sourceTree = "<group>"; };
 		154B356D10A7F9C90054FF31 /* OIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIApplication.h; sourceTree = "<group>"; };
-		154B356E10A7F9C90054FF31 /* OIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIApplication.m; sourceTree = "<group>"; };
+		154B356E10A7F9C90054FF31 /* OIApplication_E17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIApplication_E17.m; sourceTree = "<group>"; };
 		154B358010A7FB000054FF31 /* Ohai.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Ohai.xcconfig; sourceTree = "<group>"; };
 		154B364310A80DD90054FF31 /* Ohai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ohai.h; sourceTree = "<group>"; };
 		155D2AF310AF20EC00473529 /* OIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIWindow.h; sourceTree = "<group>"; };
-		155D2AF410AF20EC00473529 /* OIWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIWindow.m; sourceTree = "<group>"; };
+		155D2AF410AF20EC00473529 /* OIWindow_E17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIWindow_E17.m; sourceTree = "<group>"; };
 		155D2B0010AF228B00473529 /* OIScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIScreen.h; sourceTree = "<group>"; };
-		155D2B0110AF228B00473529 /* OIScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIScreen.m; sourceTree = "<group>"; };
+		155D2B0110AF228B00473529 /* OIScreen_E17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIScreen_E17.m; sourceTree = "<group>"; };
 		155D2CA610AF341E00473529 /* OIResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIResponder.h; sourceTree = "<group>"; };
 		155D2CA710AF341E00473529 /* OIResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIResponder.m; sourceTree = "<group>"; };
 		155D2CD110AF357800473529 /* OIKeyboardEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIKeyboardEvent.h; sourceTree = "<group>"; };
 		155D2CD210AF357800473529 /* OIKeyboardEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIKeyboardEvent.m; sourceTree = "<group>"; };
 		155D2CEC10AF377A00473529 /* OIMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIMap.h; sourceTree = "<group>"; };
-		155D2CED10AF377A00473529 /* OIMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIMap.m; sourceTree = "<group>"; };
+		155D2CED10AF377A00473529 /* OIMap_HanlinV3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIMap_HanlinV3.m; sourceTree = "<group>"; };
+		1561AB4610DACBF600FB6467 /* Ohai (AppKit).framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Ohai (AppKit).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1561AB4710DACBF600FB6467 /* Ohai (AppKit)-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ohai (AppKit)-Info.plist"; sourceTree = "<group>"; };
+		1561AB5410DACC8D00FB6467 /* OITargets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OITargets.h; sourceTree = "<group>"; };
+		1561AB5810DACD4600FB6467 /* OIMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIMap.m; sourceTree = "<group>"; };
 		158E5DE510AFF8D1005F0C3C /* OILog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OILog.h; sourceTree = "<group>"; };
 		158E5DE610AFF8D1005F0C3C /* OILog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OILog.m; sourceTree = "<group>"; };
 		15C8705210AF607B000C05E1 /* OIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIColor.h; sourceTree = "<group>"; };
@@ -94,6 +121,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1561AB4410DACBF600FB6467 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF560486A6940098B216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2EF5B0486A6940098B216 /* Ohai.framework */,
+				1561AB4610DACBF600FB6467 /* Ohai (AppKit).framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,11 +153,13 @@
 			children = (
 				154B358010A7FB000054FF31 /* Ohai.xcconfig */,
 				154B364310A80DD90054FF31 /* Ohai.h */,
+				1561AB5410DACC8D00FB6467 /* OITargets.h */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				1561AB4710DACBF600FB6467 /* Ohai (AppKit)-Info.plist */,
 			);
 			name = Ohai;
 			sourceTree = "<group>";
@@ -150,15 +187,16 @@
 			children = (
 				155D2DF610AF4C1100473529 /* Views */,
 				155D2CEC10AF377A00473529 /* OIMap.h */,
-				155D2CED10AF377A00473529 /* OIMap.m */,
+				1561AB5810DACD4600FB6467 /* OIMap.m */,
+				155D2CED10AF377A00473529 /* OIMap_HanlinV3.m */,
 				155D2CD110AF357800473529 /* OIKeyboardEvent.h */,
 				155D2CD210AF357800473529 /* OIKeyboardEvent.m */,
 				154B356D10A7F9C90054FF31 /* OIApplication.h */,
-				154B356E10A7F9C90054FF31 /* OIApplication.m */,
+				154B356E10A7F9C90054FF31 /* OIApplication_E17.m */,
 				155D2AF310AF20EC00473529 /* OIWindow.h */,
-				155D2AF410AF20EC00473529 /* OIWindow.m */,
+				155D2AF410AF20EC00473529 /* OIWindow_E17.m */,
 				155D2B0010AF228B00473529 /* OIScreen.h */,
-				155D2B0110AF228B00473529 /* OIScreen.m */,
+				155D2B0110AF228B00473529 /* OIScreen_E17.m */,
 				155D2CA610AF341E00473529 /* OIResponder.h */,
 				155D2CA710AF341E00473529 /* OIResponder.m */,
 				158E5DE510AFF8D1005F0C3C /* OILog.h */,
@@ -200,11 +238,11 @@
 			children = (
 				150772DE10B28F0200A32F62 /* Pages */,
 				150CD3D710B1457E00554834 /* OIView.h */,
-				150CD3D810B1457E00554834 /* OIView.m */,
+				150CD3D810B1457E00554834 /* OIView_E17.m */,
 				150CD44610B1556300554834 /* OIImageView.h */,
-				150CD44710B1556300554834 /* OIImageView.m */,
+				150CD44710B1556300554834 /* OIImageView_E17.m */,
 				150CD40D10B14B4D00554834 /* OIRectangle.h */,
-				150CD40E10B14B4D00554834 /* OIRectangle.m */,
+				150CD40E10B14B4D00554834 /* OIRectangle_E17.m */,
 				15C8705210AF607B000C05E1 /* OIColor.h */,
 			);
 			name = Views;
@@ -221,6 +259,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1561AB4110DACBF600FB6467 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1561ABC210DAD32000FB6467 /* Ohai.h in Headers */,
+				1561ABC310DAD32000FB6467 /* OIApplication.h in Headers */,
+				1561ABC410DAD32000FB6467 /* OIColor.h in Headers */,
+				1561ABC510DAD32000FB6467 /* OIImageView.h in Headers */,
+				1561ABC610DAD32000FB6467 /* OIKeyboardEvent.h in Headers */,
+				1561ABC710DAD32000FB6467 /* OILog.h in Headers */,
+				1561ABC810DAD32000FB6467 /* OIMap.h in Headers */,
+				1561ABC910DAD32000FB6467 /* OIPage.h in Headers */,
+				1561ABCA10DAD32000FB6467 /* OIPagedController.h in Headers */,
+				1561ABCB10DAD32000FB6467 /* OIRectangle.h in Headers */,
+				1561ABCC10DAD32000FB6467 /* OIResponder.h in Headers */,
+				1561ABCD10DAD32000FB6467 /* OIScreen.h in Headers */,
+				1561AB5610DACC8D00FB6467 /* OITargets.h in Headers */,
+				1561ABCE10DAD32000FB6467 /* OIView.h in Headers */,
+				1561ABCF10DAD32000FB6467 /* OIWindow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,15 +299,34 @@
 				150CD44810B1556300554834 /* OIImageView.h in Headers */,
 				150772DB10B28C9200A32F62 /* OIPagedController.h in Headers */,
 				150772E310B2907600A32F62 /* OIPage.h in Headers */,
+				1561AB5510DACC8D00FB6467 /* OITargets.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8DC2EF4F0486A6940098B216 /* Ohai (Cocotron: Linux arm_OpenInkpot) */ = {
+		1561AB4510DACBF600FB6467 /* Ohai (AppKit) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Ohai (Cocotron: Linux arm_OpenInkpot)" */;
+			buildConfigurationList = 1561AB4A10DACBF700FB6467 /* Build configuration list for PBXNativeTarget "Ohai (AppKit)" */;
+			buildPhases = (
+				1561AB4110DACBF600FB6467 /* Headers */,
+				1561AB4210DACBF600FB6467 /* Resources */,
+				1561AB4310DACBF600FB6467 /* Sources */,
+				1561AB4410DACBF600FB6467 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ohai (AppKit)";
+			productName = "Ohai (AppKit)";
+			productReference = 1561AB4610DACBF600FB6467 /* Ohai (AppKit).framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8DC2EF4F0486A6940098B216 /* Ohai (Cocotron; Hanlin V3 OpenInkpot) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Ohai (Cocotron; Hanlin V3 OpenInkpot)" */;
 			buildPhases = (
 				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
@@ -260,7 +339,7 @@
 			);
 			dependencies = (
 			);
-			name = "Ohai (Cocotron: Linux arm_OpenInkpot)";
+			name = "Ohai (Cocotron; Hanlin V3 OpenInkpot)";
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = Ohai;
 			productReference = 8DC2EF5B0486A6940098B216 /* Ohai.framework */;
@@ -279,12 +358,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DC2EF4F0486A6940098B216 /* Ohai (Cocotron: Linux arm_OpenInkpot) */,
+				8DC2EF4F0486A6940098B216 /* Ohai (Cocotron; Hanlin V3 OpenInkpot) */,
+				1561AB4510DACBF600FB6467 /* Ohai (AppKit) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1561AB4210DACBF600FB6467 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF520486A6940098B216 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,22 +383,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1561AB4310DACBF600FB6467 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1561ABB710DAD31400FB6467 /* OIKeyboardEvent.m in Sources */,
+				1561ABB810DAD31400FB6467 /* OILog.m in Sources */,
+				1561ABB910DAD31400FB6467 /* OIMap.m in Sources */,
+				1561ABBB10DAD31400FB6467 /* OIPage.m in Sources */,
+				1561ABBC10DAD31400FB6467 /* OIPagedController.m in Sources */,
+				1561ABBE10DAD31400FB6467 /* OIResponder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154B357010A7F9C90054FF31 /* OIApplication.m in Sources */,
-				155D2AF610AF20EC00473529 /* OIWindow.m in Sources */,
-				155D2B0310AF228B00473529 /* OIScreen.m in Sources */,
+				154B357010A7F9C90054FF31 /* OIApplication_E17.m in Sources */,
+				155D2AF610AF20EC00473529 /* OIWindow_E17.m in Sources */,
+				155D2B0310AF228B00473529 /* OIScreen_E17.m in Sources */,
 				155D2CA910AF341E00473529 /* OIResponder.m in Sources */,
 				155D2CD410AF357800473529 /* OIKeyboardEvent.m in Sources */,
-				155D2CEF10AF377A00473529 /* OIMap.m in Sources */,
 				158E5DE810AFF8D1005F0C3C /* OILog.m in Sources */,
-				150CD3DA10B1457E00554834 /* OIView.m in Sources */,
-				150CD41010B14B4D00554834 /* OIRectangle.m in Sources */,
-				150CD44910B1556300554834 /* OIImageView.m in Sources */,
+				150CD3DA10B1457E00554834 /* OIView_E17.m in Sources */,
+				150CD41010B14B4D00554834 /* OIRectangle_E17.m in Sources */,
+				150CD44910B1556300554834 /* OIImageView_E17.m in Sources */,
 				150772DC10B28C9200A32F62 /* OIPagedController.m in Sources */,
 				150772E410B2907600A32F62 /* OIPage.m in Sources */,
+				1561AB5910DACD4600FB6467 /* OIMap.m in Sources */,
+				1561AB8E10DACFEA00FB6467 /* OIMap_HanlinV3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,12 +430,69 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1561AB4810DACBF700FB6467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = "OITarget=2147483647";
+				INFOPLIST_FILE = "Ohai (AppKit)-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Ohai (AppKit)";
+			};
+			name = Debug;
+		};
+		1561AB4910DACBF700FB6467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = "OITarget=2147483647";
+				INFOPLIST_FILE = "Ohai (AppKit)-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Ohai (AppKit)";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 154B358010A7FB000054FF31 /* Ohai.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "OITarget=1";
 				HEADER_SEARCH_PATHS = (
 					"/Developer/Cocotron/1.0/Linux/arm_OpenInkpot/gcc-4.3.1/arm-ip-linux-gnueabi/include",
 					"/Developer/Cocotron/1.0/Linux/arm_OpenInkpot/gcc-4.3.1/arm-ip-linux-gnueabi/include/eina-0",
@@ -356,6 +514,7 @@
 			baseConfigurationReference = 154B358010A7FB000054FF31 /* Ohai.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PREPROCESSOR_DEFINITIONS = "OITarget=1";
 				HEADER_SEARCH_PATHS = (
 					"/Developer/Cocotron/1.0/Linux/arm_OpenInkpot/gcc-4.3.1/arm-ip-linux-gnueabi/include",
 					"/Developer/Cocotron/1.0/Linux/arm_OpenInkpot/gcc-4.3.1/arm-ip-linux-gnueabi/include/eina-0",
@@ -401,7 +560,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Ohai (Cocotron: Linux arm_OpenInkpot)" */ = {
+		1561AB4A10DACBF700FB6467 /* Build configuration list for PBXNativeTarget "Ohai (AppKit)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1561AB4810DACBF700FB6467 /* Debug */,
+				1561AB4910DACBF700FB6467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Ohai (Cocotron; Hanlin V3 OpenInkpot)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91AE08733DA50010E9CD /* Debug */,

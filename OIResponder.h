@@ -16,20 +16,20 @@
 
 extern NSString* const OIObjectDidBecomeFirstResponderNotification;
 
-@interface NSObject (OIEvents)
+@protocol OIResponderEvents <NSObject>
 
 - (void) keyDown:(OIKeyboardEvent*) event;
 - (void) keyUp:(OIKeyboardEvent*) event;
 
 @end
 
-@interface OIResponder : NSObject {
-	id nextResponder;
+@interface OIResponder : NSObject <OIResponderEvents> {
+	id <OIResponderEvents> nextResponder;
 	id intentDelegate;
 	NSMutableArray* maps;
 }
 
-@property(assign) id nextResponder;
+@property(assign) id <OIResponderEvents> nextResponder;
 @property(assign) id intentDelegate;
 
 // Maps.

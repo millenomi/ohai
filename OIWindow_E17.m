@@ -6,6 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "OITargets.h"
+
+#if OITargetFeatureEnlightenment
+
 #import "OIWindow.h"
 #import "OIApplication.h"
 #import "OIScreen.h"
@@ -61,8 +65,8 @@
 		self.nextResponder = OIApp;
 		frame = f;
 		hidden = YES;
-		evas = ecore_evas_software_x11_new(NULL, 0, f.origin.x, f.origin.y, f.size.width, f.size.height);
-		NSAssert(evas, @"Cannot create a window. Make sure the windowing system is running and accessible.");
+		native = ecore_evas_software_x11_new(NULL, 0, f.origin.x, f.origin.y, f.size.width, f.size.height);
+		NSAssert(native, @"Cannot create a window. Make sure the windowing system is running and accessible.");
 		
 		views = [NSMutableArray new];
 		
@@ -85,11 +89,11 @@
 {
 	[views release];
 	
-	if (evas) {
-		ecore_evas_hide(evas);
-		ecore_evas_free(evas);
+	if (native) {
+		ecore_evas_hide(native);
+		ecore_evas_free(native);
 		
-		evas = NULL;
+		native = NULL;
 	}
 	
 	[super dealloc];
@@ -97,11 +101,11 @@
 
 - (void) setHidden:(BOOL) h;
 {
-	if (evas) {
+	if (native) {
 		if (!h)
-			ecore_evas_show(evas);
+			ecore_evas_show(native);
 		else
-			ecore_evas_hide(evas);
+			ecore_evas_hide(native);
 	}
 	
 	hidden = h;
@@ -110,13 +114,13 @@
 - (NSRect) frame;
 {
 	int x, y, w, h;
-	ecore_evas_geometry_get(evas, &x, &y, &w, &h);
+	ecore_evas_geometry_get(native, &x, &y, &w, &h);
 	return NSMakeRect(x, y, w, h);
 }
 
 - (void) setFrame:(NSRect) f;
 {
-	ecore_evas_move_resize(evas, f.origin.x, f.origin.y, f.size.width, f.size.height);
+	ecore_evas_move_resize(native, f.origin.x, f.origin.y, f.size.width, f.size.height);
 }
 
 - (NSRect) bounds;
@@ -128,17 +132,17 @@
 
 - (BOOL) zoomed;
 {
-	return ecore_evas_maximized_get(evas) != 0;
+	return ecore_evas_maximized_get(native) != 0;
 }
 
 - (void) setZoomed:(BOOL) z;
 {
-	ecore_evas_maximized_set(evas, z? 1 : 0);
+	ecore_evas_maximized_set(native, z? 1 : 0);
 }
 
 - (void) orderFront;
 {
-	ecore_evas_raise(evas);
+	ecore_evas_raise(native);
 }
 
 - (void) show;
@@ -147,9 +151,9 @@
 	[self orderFront];
 }
 
-- (OIWindowEcoreEvasRef) ecoreEvas;
+- (OIWindowNativeImplementationRef) nativeWindow;
 {
-	return evas;
+	return native;
 }
 
 - (void) addView:(OIView*) shape;
@@ -168,3 +172,7 @@
 }
 
 @end
+
+#else
+#error This file should only be included in an Enlightenment build.
+#endif

@@ -6,6 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "OITargets.h"
+
+#if OITargetFeatureEnlightenment
+
 #import "OIScreen.h"
 #import "OIApplication.h"
 
@@ -49,7 +53,7 @@ static void OIScreenTerminateWhenXQuits(void* nothing) {
 {
 	self = [super init];
 	if (self != nil) {
-		screenRef = (_OIScreenEvasXScreenRef) ecore_x_default_screen_get();
+		native = (OIScreenNativeHandle) ecore_x_default_screen_get();
 	}
 	
 	return self;
@@ -63,3 +67,7 @@ static void OIScreenTerminateWhenXQuits(void* nothing) {
 }
 
 @end
+
+#else
+#error This file should only be included in an Enlightenment build.
+#endif

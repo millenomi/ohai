@@ -11,12 +11,12 @@
 
 @class OIView, OIRectangle;
 
-typedef void* OIWindowEcoreEvasRef;
+typedef void* OIWindowNativeImplementationRef;
 
 #define OIWindowViewLog (@"OIWindowViewLog")
 
 @interface OIWindow : OIResponder {
-	OIWindowEcoreEvasRef evas;
+	OIWindowNativeImplementationRef native;
 	NSRect frame;
 	
 	BOOL hidden;
@@ -39,7 +39,7 @@ typedef void* OIWindowEcoreEvasRef;
 @property(readonly) NSRect bounds; // unlike other AppKitalikes, -bounds here is just -frame in this OIWindow's coordinates. Always derived from -frame.
 @property(assign) BOOL zoomed;
 
-@property(readonly) OIWindowEcoreEvasRef ecoreEvas;
+@property(readonly) OIWindowNativeImplementationRef nativeWindow;
 
 - (void) addView:(OIView*) shape;
 - (void) removeView:(OIView*) shape;

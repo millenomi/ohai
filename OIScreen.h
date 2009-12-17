@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void* _OIScreenEvasXScreenRef;
+typedef void* OIScreenNativeHandle;
 
 @interface OIScreen : NSObject {
-	_OIScreenEvasXScreenRef screenRef;
+	OIScreenNativeHandle native;
 }
 
 + (OIScreen*) mainScreen;

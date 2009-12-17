@@ -9,15 +9,13 @@
 #import "OIResponder.h"
 #import "OILog.h"
 
-#import <Evas.h>
-
 NSString* const OIObjectDidBecomeFirstResponderNotification = @"OIObjectDidBecomeFirstResponder";
 
 #define OIRLog(x, ...) _OILog(OIResponderEventLog, @"%@ (%s): \n - " x, self, __func__, ## __VA_ARGS__)
 
 @interface OIResponder ()
 
-- (BOOL) performIntentForEvent:(OIKeyboardEvent*) event selector:(SEL) mapSelector;
+- (BOOL) performIntentForKeyboardEvent:(OIKeyboardEvent*) event selector:(SEL) mapSelector;
 
 @end
 
@@ -51,7 +49,7 @@ NSString* const OIObjectDidBecomeFirstResponderNotification = @"OIObjectDidBecom
 {
 	OIRLog(@"Received key down event: %@", event);
 	
-	if (![self performIntentForEvent:event selector:@selector(performIntentForKeyDownEvent:on:)] && [self.nextResponder respondsToSelector:@selector(keyDown:)])
+	if (![self performIntentForKeyboardEvent:event selector:@selector(performIntentForKeyDownEvent:on:)] && [self.nextResponder respondsToSelector:@selector(keyDown:)])
 		[self.nextResponder keyDown:event];
 }
 
@@ -59,11 +57,11 @@ NSString* const OIObjectDidBecomeFirstResponderNotification = @"OIObjectDidBecom
 {
 	OIRLog(@"Received key down event: %@", event);
 
-	if (![self performIntentForEvent:event selector:@selector(performIntentForKeyUpEvent:on:)] && [self.nextResponder respondsToSelector:@selector(keyUp:)])
+	if (![self performIntentForKeyboardEvent:event selector:@selector(performIntentForKeyUpEvent:on:)] && [self.nextResponder respondsToSelector:@selector(keyUp:)])
 		[self.nextResponder keyUp:event];
 }
 
-- (BOOL) performIntentForEvent:(OIKeyboardEvent*) event selector:(SEL) mapSelector;
+- (BOOL) performIntentForKeyboardEvent:(OIKeyboardEvent*) event selector:(SEL) mapSelector;
 {
 	OIRLog(@"Checking for intents with selector %@", NSStringFromSelector(mapSelector));
 	for (OIMap* m in self.maps) {

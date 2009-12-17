@@ -6,6 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "OITargets.h"
+
+#if OITargetFeatureEnlightenment
+
 #import "OIImageView.h"
 #import "OILog.h"
 #import <Evas.h>
@@ -36,7 +40,7 @@
 	return k;
 }
 
-- (OIViewEvasObjectRef) createEvasObjectByAddingToCanvas:(OIWindowEvasRef)canvas;
+- (OIViewNativeHandle) createNativeObjectByAddingToNativeCanvas:(OICanvasNativeHandle)canvas;
 {
 	return evas_object_image_add(canvas);
 }
@@ -47,10 +51,10 @@
 
 - (void) imagePathApplyToHandle;
 {
-	evas_object_image_file_set(self.handle, imagePath? [imagePath UTF8String] : NULL, NULL);
+	evas_object_image_file_set(self.nativeHandle, imagePath? [imagePath UTF8String] : NULL, NULL);
 	if (imagePath) {
-		evas_object_image_reload(self.handle);
-		int error = evas_object_image_load_error_get(self.handle);
+		evas_object_image_reload(self.nativeHandle);
+		int error = evas_object_image_load_error_get(self.nativeHandle);
 		if (error != EVAS_LOAD_ERROR_NONE) {
 			// TODO non-exception way to report the error.
 			[NSException raise:@"OIImageViewCouldNotLoadImageException" format:@"Load error is %d", error];
@@ -66,7 +70,7 @@
 - (NSString*) imagePathByQueryingHandle;
 {
 	const char* file, * key;
-	evas_object_image_file_get(self.handle, &file, &key);
+	evas_object_image_file_get(self.nativeHandle, &file, &key);
 
 	_OILog(OIWindowViewLog, @"Image path from handle was %s", file? file : "((null))");
 	
@@ -81,7 +85,7 @@ OIViewSynthesizeCopyAccessors(imagePath, setImagePath:, NSString*, imagePath)
 {
 	NSRect r = imageFrame;
 	if (!sizeImageFrameToFit)
-		evas_object_image_fill_set(self.handle, r.origin.x, r.origin.y, r.size.width, r.size.height);
+		evas_object_image_fill_set(self.nativeHandle, r.origin.x, r.origin.y, r.size.width, r.size.height);
 }
 
 - (NSString*) imageFrameDescription;
@@ -92,7 +96,7 @@ OIViewSynthesizeCopyAccessors(imagePath, setImagePath:, NSString*, imagePath)
 - (NSRect) imageFrameByQueryingHandle;
 {
 	Evas_Coord x, y, w, h;
-	evas_object_image_fill_get(self.handle, &x, &y, &w, &h);
+	evas_object_image_fill_get(self.nativeHandle, &x, &y, &w, &h);
 	return NSMakeRect(x, y, w, h);
 }
 
@@ -102,7 +106,7 @@ OIViewSynthesizeAssignAccessors(imageFrame, setImageFrame:, NSRect, imageFrame)
 
 - (void) sizeImageFrameToFitApplyToHandle;
 {
-	evas_object_image_filled_set(self.handle, sizeImageFrameToFit? EINA_TRUE : EINA_FALSE);
+	evas_object_image_filled_set(self.nativeHandle, sizeImageFrameToFit? EINA_TRUE : EINA_FALSE);
 }
 
 - (NSString*) sizeImageFrameToFitDescription;
@@ -112,7 +116,7 @@ OIViewSynthesizeAssignAccessors(imageFrame, setImageFrame:, NSRect, imageFrame)
 
 - (BOOL) sizeImageFrameToFitByQueryingHandle;
 {
-	return evas_object_image_filled_get(self.handle) == EINA_TRUE;
+	return evas_object_image_filled_get(self.nativeHandle) == EINA_TRUE;
 }
 
 OIViewSynthesizeAssignAccessors(sizeImageFrameToFit, setSizeImageFrameToFit:, BOOL, sizeImageFrameToFit)
@@ -133,17 +137,21 @@ OIViewSynthesizeAssignAccessors(sizeImageFrameToFit, setSizeImageFrameToFit:, BO
 
 - (NSSize) imageSize;
 {
-	if (!self.handle)
+	if (!self.nativeHandle)
 		return NSZeroSize;
 	
 	int w, h;
-	evas_object_image_size_get(self.handle, &w, &h);
+	evas_object_image_size_get(self.nativeHandle, &w, &h);
 	return NSMakeSize(w, h);
 }
 
 - (BOOL) isImageInformationAvailable;
 {
-	return self.handle != nil;
+	return self.nativeHandle != nil;
 }
 
 @end
+
+#else
+#error This file should only be included in an Enlightenment build.
+#endif

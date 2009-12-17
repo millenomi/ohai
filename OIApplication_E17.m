@@ -6,6 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "OITargets.h"
+
+#if OITargetFeatureEnlightenment
+
 #import "OIApplication.h"
 #import "OIWindow.h"
 
@@ -168,3 +172,7 @@ static int OIRunLoopHandleEcoreExitEvent(void* myself, int eventType, void* even
 }
 
 @end
+
+#else
+#error This file should only be included in an Enlightenment build.
+#endif

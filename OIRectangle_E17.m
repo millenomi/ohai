@@ -6,6 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "OITargets.h"
+
+#if OITargetFeatureEnlightenment
+
 #import "OIRectangle.h"
 #import <Evas.h>
 
@@ -29,9 +33,13 @@
 	return [[[self alloc] initWithFrame:f] autorelease];
 }
 
-- (OIViewEvasObjectRef) createEvasObjectByAddingToCanvas:(OIWindowEvasRef)canvas;
+- (OIViewNativeHandle) createNativeObjectByAddingToNativeCanvas:(OICanvasNativeHandle)canvas;
 {
 	return evas_object_rectangle_add(canvas);
 }
 
 @end
+
+#else
+#error This file should only be included in an Enlightenment build.
+#endif
